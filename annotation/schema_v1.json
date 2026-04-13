@@ -1,0 +1,49 @@
+{
+  "version": "v1",
+  "task": "legal_rag_claim_level_annotation",
+  "support_label_enum": [
+    "supported",
+    "partially_supported",
+    "unsupported",
+    "conflicting",
+    "insufficient_information"
+  ],
+  "claim_type_enum": [
+    "definition",
+    "general_rule",
+    "specific_obligation",
+    "specific_prohibition",
+    "procedural_requirement",
+    "exception",
+    "scope_of_application",
+    "cross_border_requirement",
+    "enforcement_consequence",
+    "general_rule_with_exception"
+  ],
+  "required_fields": {
+    "sample_level": [
+      "sample_id",
+      "domain",
+      "question",
+      "question_type",
+      "authority_scope",
+      "gold_authorities",
+      "gold_minimal_spans",
+      "reference_answer",
+      "claims",
+      "answer_policy",
+      "split"
+    ],
+    "claim_level": [
+      "claim_id",
+      "claim_text",
+      "claim_type",
+      "gold_citations",
+      "support_label",
+      "requires_exception",
+      "requires_multi_authority",
+      "temporal_sensitive",
+      "notes"
+    ]
+  }
+}
