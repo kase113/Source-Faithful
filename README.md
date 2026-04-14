@@ -17,6 +17,7 @@
 ### 1.1 必须开源内容（复现最小闭环）
 
 - `README.md`（本文件）
+- `manual_revision_examples.md`
 - `authority_master_sheet.csv`
 - `scheme.md`
 - `data_processed/authority_docs.jsonl`
@@ -28,6 +29,9 @@
 - `annotation/guidelines_v1.md`
 - `annotation/schema_v1.json`
 - `annotation/claim_annotation_template.jsonl`
+- `annotation/manual_adjudication_guide.md`
+- `annotation/manual_adjudication_queue.jsonl`
+- `annotation/adjudication_log.jsonl`
 - `scripts/parse/convert_rawdata_pdfs.py`
 - `scripts/parse/prepare_clean_corpus.py`
 - `scripts/build_dataset/build_from_clean_docs.py`
@@ -93,6 +97,156 @@
 - `unsupported`
 - `conflicting`
 - `insufficient_information`
+
+### 2.5 README 精简版人工修订示例
+
+完整长版示例见：
+
+- [manual_revision_examples.md](/c:/Users/H/Desktop/docker/lawllm/manual_revision_examples.md)
+
+如果只想在 README 或论文正文里展示“为什么 benchmark 不能纯自动扩展”，下面这一张主表 + 3 个案例通常就够用了。
+
+#### 主表：自动扩展到人工修订的核心变化
+
+| 场景 | 自动扩展常见问题 | 人工修订后要求 | 代表样本 |
+| --- | --- | --- | --- |
+| 例外/但书题 | 只写“有例外情形”，但不拆一般规则和具体例外 | 必须分别写出一般规则、例外触发点、不能过度推出的边界 | `sample_0089` |
+| 错误 citation / OCR 噪声 | 引到错误条文，或把页眉页脚、断句碎片当成 claim | 必须改成可判真的法律命题，并校正到真实支持条文 | `sample_0008`, `sample_0096` |
+| 多法源联合题 | 只说“应综合判断”，但不说明每部法源各自支持什么 | 必须给出法源分工，并说明为什么单引一部法不够 | `sample_0103` |
+| 程序义务题 | `reference_answer` 仍是“三个方面+省略号”模板句 | 必须改成自然语言总述，claims 继续保持逐条可核验 | `sample_0051`, `sample_0108` |
+
+#### 案例 1：例外题必须拆开一般规则与具体例外
+
+样本：
+
+- [benchmark_dev.jsonl](/c:/Users/H/Desktop/docker/lawllm/data_processed/benchmark_dev.jsonl)
+
+代表 `sample_0089` 的修订逻辑：
+
+- 自动扩展版的问题：只会写“先看一般规则，再看例外”，但没有把例外内容具体写出来。
+- 人工修订版的要求：至少拆成 3 个可核验 claim。
+  - 未经同意原则上不得收集、使用个人信息。
+  - 即便取得同意，也不能超出提供服务所必需的范围。
+  - 法律、行政法规另有规定时，从其规定，因此“同意”不是唯一依据。
+
+这一类样本主要用来测：
+
+- 模型是否遗漏例外
+- 模型是否把一般规则绝对化
+- 单一 citation 是否足以支撑“规则 + 例外”两个层面
+
+#### 案例 2：错误 citation / OCR 碎片不能直接进入 gold
+
+样本：
+
+- [benchmark_train.jsonl](/c:/Users/H/Desktop/docker/lawllm/data_processed/benchmark_train.jsonl)
+- [benchmark_dev.jsonl](/c:/Users/H/Desktop/docker/lawllm/data_processed/benchmark_dev.jsonl)
+
+代表 `sample_0008` 与 `sample_0096` 的修订逻辑：
+
+- `sample_0008` 原先把《个人信息保护法》的程序义务题引到了错误条文，修订后改到 `art055/art056/art061`，分别对应权利受理机制、安全治理措施、影响评估义务。
+- `sample_0096` 原先继承了 `规定条件的相关材料` 这类 OCR / 断页碎片，人工修订后改成明确可核验的“电子认证服务许可申请义务”。
+
+这一类样本主要用来测：
+
+- citation 是否真实支持 claim
+- gold 是否混入页面噪声、章节标题、说明性碎片
+- 模型答错时到底是“法律理解错”，还是 benchmark 自己不干净
+
+#### 案例 3：多法源题必须说明法源分工
+
+样本：
+
+- [benchmark_test.jsonl](/c:/Users/H/Desktop/docker/lawllm/data_processed/benchmark_test.jsonl)
+
+代表 `sample_0103` 的修订逻辑：
+
+- 《在线政务服务规定》负责支持政务服务平台建设、数据共享、办事指南公开等程序义务。
+- 《内容生态治理规定》负责支持平台的信息内容管理主体责任。
+- 最终 gold 明确写出：只引其中一部法源，不足以得出“政务流程合规 + 内容治理合规”的完整结论。
+
+这一类样本主要用来测：
+
+- 检索错配
+- 多法源 claim 是否被错误合并
+- 模型有没有把其中一部规范“借来”支持本不该支持的结论
+
+### 2.6 哪些内容必须人工判决
+
+自动扩展后的样本可以作为草稿、候选标注单或训练前处理中间产物，但以下内容不能直接作为最终 gold，必须人工判决：
+
+1. 例外/但书题中，一般规则与具体例外没有分开写清的样本。
+2. 多法源题中，没有说明“哪一部法源支持哪一部分结论”的样本。
+3. `gold_citations` 只是“相关”但未达到“足以支持”的样本。
+4. `support_label` 处在 `supported` / `partially_supported` 边界上的样本。
+5. 含有 OCR、页眉页脚、章节标题、断句碎片、错误条号映射的样本。
+6. `reference_answer` 仍然是“完整回答至少应覆盖三个层面”之类模板总述的公开展示样本。
+
+### 2.7 人工判决目录与文件形式
+
+推荐把人工判决工作包理解成下面这个目录：
+
+```text
+annotation/
+  manual_adjudication_guide.md
+  manual_adjudication_queue.jsonl
+  adjudication_log.jsonl
+  claim_annotation_template.jsonl
+data_processed/
+  benchmark_train.jsonl
+  benchmark_dev.jsonl
+  benchmark_test.jsonl
+manual_revision_examples.md
+```
+
+各文件的作用和形式如下：
+
+| 文件 | 作用 | 形式 |
+| --- | --- | --- |
+| `annotation/manual_adjudication_guide.md` | 人工裁决规则说明 | Markdown |
+| `annotation/manual_adjudication_queue.jsonl` | 待人工处理队列 | JSONL，每行一个待审样本 |
+| `annotation/adjudication_log.jsonl` | 双人标注分歧或重大改写记录 | JSONL，每行一个 claim 级裁决记录 |
+| `annotation/claim_annotation_template.jsonl` | claim 级同步模板 | JSONL，每行一个 claim |
+| `data_processed/benchmark_train.jsonl` | 训练集最终版本 | JSONL，每行一个完整 benchmark 样本 |
+| `data_processed/benchmark_dev.jsonl` | 开发集最终版本 | JSONL，每行一个完整 benchmark 样本 |
+| `data_processed/benchmark_test.jsonl` | 测试集最终版本 | JSONL，每行一个完整 benchmark 样本 |
+| `manual_revision_examples.md` | 对外展示的修订案例集 | Markdown |
+
+#### `manual_adjudication_queue.jsonl` 的建议字段
+
+```json
+{
+  "sample_id": "sample_0089",
+  "split": "dev",
+  "question_type": "例外/但书问答",
+  "authority_scope": ["rule_telecom_internet_pi_2013"],
+  "review_flags": ["generic_exception_requires_manual_review"],
+  "review_reason": "自动扩展仍未把一般规则和例外拆成可核验 claim"
+}
+```
+
+#### `adjudication_log.jsonl` 的建议字段
+
+```json
+{
+  "sample_id": "sample_0006",
+  "claim_id": "sample_0006_claim_2",
+  "annotator_a": "supported",
+  "annotator_b": "partially_supported",
+  "final_label": "partially_supported",
+  "reason": "A 与 B 对支持充分性存在分歧；经裁决按更保守标准保留为 partially_supported。"
+}
+```
+
+#### 人工判决后必须回写的内容
+
+人工裁决不应只停留在 queue 或 log 中，最终必须同步回写到正式 benchmark：
+
+1. 重写 `reference_answer`，去掉模板句和说明性废话。
+2. 把 `claims` 改成可独立判真的法律命题。
+3. 校正 `gold_citations` 与 `gold_minimal_spans`。
+4. 必要时改 `support_label`、`requires_exception`、`requires_multi_authority`。
+5. 同步更新 `annotation/claim_annotation_template.jsonl`。
 
 ## 3. 实验规范
 
