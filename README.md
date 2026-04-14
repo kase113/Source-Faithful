@@ -17,6 +17,7 @@
 ### 1.1 必须开源内容（复现最小闭环）
 
 - `README.md`（本文件）
+- `CONTRIBUTING.md`
 - `manual_revision_examples.md`
 - `authority_master_sheet.csv`
 - `scheme.md`
@@ -102,7 +103,7 @@
 
 完整长版示例见：
 
-- [manual_revision_examples.md](/c:/Users/H/Desktop/docker/lawllm/manual_revision_examples.md)
+- [manual_revision_examples.md](./manual_revision_examples.md)
 
 如果只想在 README 或论文正文里展示“为什么 benchmark 不能纯自动扩展”，下面这一张主表 + 3 个案例通常就够用了。
 
@@ -119,7 +120,7 @@
 
 样本：
 
-- [benchmark_dev.jsonl](/c:/Users/H/Desktop/docker/lawllm/data_processed/benchmark_dev.jsonl)
+- [benchmark_dev.jsonl](./data_processed/benchmark_dev.jsonl)
 
 代表 `sample_0089` 的修订逻辑：
 
@@ -139,8 +140,8 @@
 
 样本：
 
-- [benchmark_train.jsonl](/c:/Users/H/Desktop/docker/lawllm/data_processed/benchmark_train.jsonl)
-- [benchmark_dev.jsonl](/c:/Users/H/Desktop/docker/lawllm/data_processed/benchmark_dev.jsonl)
+- [benchmark_train.jsonl](./data_processed/benchmark_train.jsonl)
+- [benchmark_dev.jsonl](./data_processed/benchmark_dev.jsonl)
 
 代表 `sample_0008` 与 `sample_0096` 的修订逻辑：
 
@@ -157,7 +158,7 @@
 
 样本：
 
-- [benchmark_test.jsonl](/c:/Users/H/Desktop/docker/lawllm/data_processed/benchmark_test.jsonl)
+- [benchmark_test.jsonl](./data_processed/benchmark_test.jsonl)
 
 代表 `sample_0103` 的修订逻辑：
 
@@ -211,6 +212,7 @@ manual_revision_examples.md
 | `data_processed/benchmark_dev.jsonl` | 开发集最终版本 | JSONL，每行一个完整 benchmark 样本 |
 | `data_processed/benchmark_test.jsonl` | 测试集最终版本 | JSONL，每行一个完整 benchmark 样本 |
 | `manual_revision_examples.md` | 对外展示的修订案例集 | Markdown |
+| `CONTRIBUTING.md` | 人工判决与协作流程说明 | Markdown |
 
 #### `manual_adjudication_queue.jsonl` 的建议字段
 
@@ -499,6 +501,12 @@ python scripts/eval/eval_model_outputs.py --pred annotation/gpt-5_outputs.jsonl 
 - `CITATION.cff`
 - `CONTRIBUTING.md`
 - `.gitignore`
+
+当前仓库已提供：
+
+- [CONTRIBUTING.md](./CONTRIBUTING.md)
+- [annotation/manual_adjudication_guide.md](./annotation/manual_adjudication_guide.md)
+- [manual_revision_examples.md](./manual_revision_examples.md)
 
 ## 8. 当前版本说明
 

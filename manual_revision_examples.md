@@ -41,7 +41,7 @@ The manual cleanup followed these rules:
 Sample: `sample_0089`
 
 File:
-- [benchmark_dev.jsonl](/c:/Users/H/Desktop/docker/lawllm/data_processed/benchmark_dev.jsonl)
+- [benchmark_dev.jsonl](./data_processed/benchmark_dev.jsonl)
 
 Before:
 
@@ -89,7 +89,7 @@ Why this is better:
 Sample: `sample_0008`
 
 File:
-- [benchmark_train.jsonl](/c:/Users/H/Desktop/docker/lawllm/data_processed/benchmark_train.jsonl)
+- [benchmark_train.jsonl](./data_processed/benchmark_train.jsonl)
 
 Problem before revision:
 
@@ -134,7 +134,7 @@ Why this matters:
 Sample: `sample_0015`
 
 File:
-- [benchmark_train.jsonl](/c:/Users/H/Desktop/docker/lawllm/data_processed/benchmark_train.jsonl)
+- [benchmark_train.jsonl](./data_processed/benchmark_train.jsonl)
 
 Before:
 
@@ -187,8 +187,8 @@ Why this is better:
 Sample: `sample_0032`
 
 Files:
-- [benchmark_train.jsonl](/c:/Users/H/Desktop/docker/lawllm/data_processed/benchmark_train.jsonl)
-- [benchmark_dev.jsonl](/c:/Users/H/Desktop/docker/lawllm/data_processed/benchmark_dev.jsonl) for the parallel procedural variant `sample_0092`
+- [benchmark_train.jsonl](./data_processed/benchmark_train.jsonl)
+- [benchmark_dev.jsonl](./data_processed/benchmark_dev.jsonl) for the parallel procedural variant `sample_0092`
 
 After:
 
@@ -253,7 +253,7 @@ What this example shows:
 Sample: `sample_0119`
 
 File:
-- [benchmark_test.jsonl](/c:/Users/H/Desktop/docker/lawllm/data_processed/benchmark_test.jsonl)
+- [benchmark_test.jsonl](./data_processed/benchmark_test.jsonl)
 
 After:
 
@@ -296,10 +296,10 @@ A compact description that fits well in a paper appendix:
 
 ## Related Files
 
-- [benchmark_train.jsonl](/c:/Users/H/Desktop/docker/lawllm/data_processed/benchmark_train.jsonl)
-- [benchmark_dev.jsonl](/c:/Users/H/Desktop/docker/lawllm/data_processed/benchmark_dev.jsonl)
-- [benchmark_test.jsonl](/c:/Users/H/Desktop/docker/lawllm/data_processed/benchmark_test.jsonl)
-- [claim_annotation_template.jsonl](/c:/Users/H/Desktop/docker/lawllm/annotation/claim_annotation_template.jsonl)
+- [benchmark_train.jsonl](./data_processed/benchmark_train.jsonl)
+- [benchmark_dev.jsonl](./data_processed/benchmark_dev.jsonl)
+- [benchmark_test.jsonl](./data_processed/benchmark_test.jsonl)
+- [claim_annotation_template.jsonl](./annotation/claim_annotation_template.jsonl)
 
 
 ## Example 5: OCR Fragment Repair
@@ -307,12 +307,12 @@ A compact description that fits well in a paper appendix:
 Sample: `sample_0096`
 
 Files:
-- [benchmark_dev.jsonl](/c:/Users/H/Desktop/docker/lawllm/data_processed/benchmark_dev.jsonl)
-- [authority_articles.jsonl](/c:/Users/H/Desktop/docker/lawllm/data_processed/authority_articles.jsonl)
+- [benchmark_dev.jsonl](./data_processed/benchmark_dev.jsonl)
+- [authority_articles.jsonl](./data_processed/authority_articles.jsonl)
 
 Problem before revision:
 
-- the cited article text had OCR/page-break residue such as `?????????`
+- the cited article text had OCR/page-break residue such as `规定条件的相关材料`
 - the claim inherited raw fragment text instead of a checkable legal proposition
 - the reference answer also kept the fragment and an ellipsis-style summary
 
@@ -320,10 +320,10 @@ After revision:
 
 ```json
 {
-  "reference_answer": "???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????45??????????????????????????????????????????????????????????????????",
+  "reference_answer": "从条文内容看，这一规范至少同时规定了三类要求：其一，民事活动中的合同或者其他文件、单证等文书，当事人可以约定使用或者不使用电子签名、数据电文；对于约定使用电子形式的文书，不得仅因形式为电子签名、数据电文而否定其法律效力，但涉及人身关系和特定公用事业服务等文书除外；其二，从事电子认证服务的，应当提出许可申请并提交法定材料，主管部门应在45日内作出许可或者不予许可决定；其三，电子认证服务提供者拟暂停或者终止服务时，还要提前通知有关各方、向主管部门报告并妥善安排业务承接。",
   "claims": [
     {
-      "claim_text": "???????????????????????????????????????????????????????????????????????????????????45????????????????"
+      "claim_text": "从事电子认证服务的，应当向国务院信息产业主管部门提出申请，并提交符合本法规定条件的相关材料。国务院信息产业主管部门经依法审查并征求有关部门意见后，应当自接到申请之日起45日内作出许可或者不予许可的决定。"
     }
   ]
 }
