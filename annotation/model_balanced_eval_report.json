@@ -10,7 +10,7 @@
     "avg_insufficient_citation_rate": 0.0185,
     "avg_no_citation_rate": 0.0,
     "avg_overclaim_rate": 1.0,
-    "avg_temporal_mismatch_rate": 0.2963,
+    "avg_temporal_mismatch_rate": 0.2407,
     "avg_exception_omission_rate": 0.0556,
     "avg_multi_authority_mismatch_rate": 0.0,
     "refusal_violation_count": 0
@@ -97,7 +97,7 @@
           "citation_precision": 0.5,
           "citation_recall": 0.5,
           "citation_f1": 0.5,
-          "text_match_score": 0.0465,
+          "text_match_score": 0.0,
           "high_text_match": false,
           "gold_citations": [
             "reg_online_gov_services_2019_art002",
@@ -552,7 +552,7 @@
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.1011,
+          "text_match_score": 0.0,
           "high_text_match": false,
           "gold_citations": [
             "rule_cac_enforcement_procedure_2023_art011"
@@ -577,7 +577,7 @@
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0826,
+          "text_match_score": 0.0,
           "high_text_match": false,
           "gold_citations": [
             "rule_cac_enforcement_procedure_2023_art019"
@@ -603,7 +603,7 @@
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.087,
+          "text_match_score": 0.0,
           "high_text_match": false,
           "gold_citations": [
             "rule_cac_enforcement_procedure_2023_art028"
@@ -738,7 +738,7 @@
       "insufficient_citation_rate": 0.0,
       "no_citation_rate": 0.0,
       "overclaim_rate": 1.0,
-      "temporal_mismatch_rate": 0.3333,
+      "temporal_mismatch_rate": 0.0,
       "exception_omission_rate": 0.3333,
       "multi_authority_mismatch_rate": 0.0,
       "refusal": false,
@@ -779,7 +779,7 @@
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.033,
+          "text_match_score": 0.0,
           "high_text_match": false,
           "gold_citations": [
             "rule_content_ecology_2019_art006"
@@ -819,7 +819,7 @@
             "insufficient_citation": false,
             "no_citation": false,
             "overclaim": true,
-            "temporal_mismatch": true,
+            "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
           }
@@ -1083,7 +1083,7 @@
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0396,
+          "text_match_score": 0.0,
           "high_text_match": false,
           "gold_citations": [
             "rule_data_export_security_assessment_2022_art004"
@@ -1446,7 +1446,7 @@
       "insufficient_citation_rate": 0.0,
       "no_citation_rate": 0.0,
       "overclaim_rate": 1.0,
-      "temporal_mismatch_rate": 0.3333,
+      "temporal_mismatch_rate": 0.0,
       "exception_omission_rate": 0.0,
       "multi_authority_mismatch_rate": 0.0,
       "refusal": false,
@@ -1462,7 +1462,7 @@
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0449,
+          "text_match_score": 0.0,
           "high_text_match": false,
           "gold_citations": [
             "rule_online_violence_governance_2024_art008"
@@ -1487,7 +1487,7 @@
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0769,
+          "text_match_score": 0.0,
           "high_text_match": false,
           "gold_citations": [
             "rule_online_violence_governance_2024_art010"
@@ -1513,7 +1513,7 @@
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0811,
+          "text_match_score": 0.0,
           "high_text_match": false,
           "gold_citations": [
             "rule_online_violence_governance_2024_art014"
@@ -1527,7 +1527,7 @@
             "insufficient_citation": false,
             "no_citation": false,
             "overclaim": true,
-            "temporal_mismatch": true,
+            "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
           }
@@ -1648,7 +1648,7 @@
       "insufficient_citation_rate": 0.0,
       "no_citation_rate": 0.0,
       "overclaim_rate": 1.0,
-      "temporal_mismatch_rate": 0.3333,
+      "temporal_mismatch_rate": 0.0,
       "exception_omission_rate": 0.0,
       "multi_authority_mismatch_rate": 0.0,
       "refusal": false,
@@ -1664,7 +1664,7 @@
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0408,
+          "text_match_score": 0.0,
           "high_text_match": false,
           "gold_citations": [
             "rule_telecom_internet_pi_2013_art009"
@@ -1689,7 +1689,7 @@
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0778,
+          "text_match_score": 0.0,
           "high_text_match": false,
           "gold_citations": [
             "rule_telecom_internet_pi_2013_art017"
@@ -1729,7 +1729,7 @@
             "insufficient_citation": false,
             "no_citation": false,
             "overclaim": true,
-            "temporal_mismatch": true,
+            "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
           }

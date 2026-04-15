@@ -27,7 +27,7 @@ Conclusion: no draft placeholder phrases were detected in the current published 
 
 Source: `annotation/adjudication_summary.json`
 
-- total adjudication records: **15**
+- total adjudication records: **20**
 - pending manual queue items: **0**
 
 Disagreement-type counts:
@@ -39,6 +39,7 @@ Disagreement-type counts:
 | support_vs_unsupported | 1 |
 | unsupported_vs_partial | 1 |
 | insufficient_info_boundary | 1 |
+| major_rewrite_no_label_disagreement | 5 |
 
 ## 4. Claim Style Audit (length risk)
 
@@ -48,10 +49,10 @@ Source: `annotation/claim_style_audit.json`
 |---|---:|---:|---:|---:|
 | train | 45 | 17.86% | 12 | 4.76% |
 | dev | 9 | 16.67% | 3 | 5.56% |
-| test | 15 | 27.78% | 5 | 9.26% |
+| test | 7 | 12.96% | 3 | 5.56% |
 
 ## 5. Known Gaps and Next Actions
 
-1. Some test claims are still long and close to article-level wording.
-2. Adjudication evidence is still skewed toward sufficiency-boundary disagreements.
-3. Next cleaning round should prioritize claim compression for `test` claims with `length >= 220` while preserving citation sufficiency.
+1. Some test claims remain long compared with ideal proposition-level abstraction.
+2. Adjudication evidence is improving but sufficiency-boundary cases still dominate.
+3. Next cleaning round should continue claim compression and metadata consistency checks while preserving citation sufficiency.

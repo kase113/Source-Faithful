@@ -14,20 +14,19 @@ This file records claim-length distribution and style risk to guide the next cle
 |---|---:|---:|---:|---:|---:|
 | train | 252 | 45 | 17.86% | 12 | 4.76% |
 | dev | 54 | 9 | 16.67% | 3 | 5.56% |
-| test | 54 | 15 | 27.78% | 5 | 9.26% |
+| test | 54 | 7 | 12.96% | 3 | 5.56% |
 
 ## 3. Test High-Risk Examples
 
 | sample_id | claim_id | question_type | length |
 |---|---|---|---:|
-| sample_0110 | sample_0110_claim_2 | exception_butshu | 344 |
-| sample_0109 | sample_0109_claim_1 | procedural_obligation | 234 |
-| sample_0104 | sample_0104_claim_3 | direct_article_qa | 233 |
-| sample_0108 | sample_0108_claim_2 | procedural_obligation | 230 |
-| sample_0111 | sample_0111_claim_2 | multi_authority_joint | 225 |
-| sample_0108 | sample_0108_claim_1 | procedural_obligation | 217 |
-| sample_0119 | sample_0119_claim_1 | direct_article_qa | 217 |
-| sample_0118 | sample_0118_claim_1 | condition_requirement | 215 |
+| sample_0109 | sample_0109_claim_1 | 程序义务问答 | 234 |
+| sample_0104 | sample_0104_claim_3 | 直接法条问答 | 233 |
+| sample_0111 | sample_0111_claim_2 | 多法源联合问答 | 225 |
+| sample_0118 | sample_0118_claim_1 | 条件/要件问答 | 215 |
+| sample_0114 | sample_0114_claim_1 | 直接法条问答 | 198 |
+| sample_0114 | sample_0114_claim_3 | 直接法条问答 | 195 |
+| sample_0105 | sample_0105_claim_2 | 条件/要件问答 | 180 |
 
 ## 4. Suggested Cleanup Actions
 
