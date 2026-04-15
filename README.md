@@ -289,6 +289,23 @@ manual_revision_examples.md
 - `avg_macro_citation_precision`
 - `avg_macro_citation_recall`
 - `avg_macro_citation_f1`
+- `avg_claim_label_accuracy`
+- `avg_high_text_match_rate`
+- `avg_irrelevant_citation_rate`
+- `avg_insufficient_citation_rate`
+- `avg_no_citation_rate`
+- `avg_overclaim_rate`
+- `avg_temporal_mismatch_rate`
+- `avg_exception_omission_rate`
+- `avg_multi_authority_mismatch_rate`
+- `refusal_violation_count`
+
+其中前三项用于 citation overlap，后续指标用于 claim-level source-faithfulness 诊断，例如区分：
+
+- “有引用但不相关”（`irrelevant_citation_rate`）
+- “有引用但不足以支持完整命题”（`insufficient_citation_rate`）
+- “模型漏写例外或但书”（`exception_omission_rate`）
+- “多法源题只给单法源证据”（`multi_authority_mismatch_rate`）
 
 ## 4. 复现实验流程（端到端）
 
@@ -491,7 +508,9 @@ python scripts/eval/eval_model_outputs.py --pred annotation/gpt-5_outputs.jsonl 
 2. `benchmark_*` 与 `annotation` 字段命名一致。
 3. 删除或脱敏本地绝对路径、个人信息、内部备注。
 4. 检查 `rawdata/` 与 `data_raw/` 是否误提交。
-5. 对数据来源和许可证增加明确声明。
+5. 运行模板化残留扫描，并保存证据文件 [annotation/gold_quality_audit.json](./annotation/gold_quality_audit.json)。
+6. 检查 [annotation/adjudication_log.jsonl](./annotation/adjudication_log.jsonl) 是否覆盖多类型分歧（非单一标签翻转）。
+7. 对数据来源和许可证增加明确声明。
 
 ## 7. 建议补充的仓库元信息
 

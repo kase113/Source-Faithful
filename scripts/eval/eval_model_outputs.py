@@ -22,6 +22,17 @@ def normalize_text(s: str) -> str:
     return s
 
 
+def text_similarity(a: str, b: str) -> float:
+    a = normalize_text(a)
+    b = normalize_text(b)
+    if not a or not b:
+        return 0.0
+    if a in b or b in a:
+        return 1.0
+    sa, sb = set(a), set(b)
+    return len(sa & sb) / max(1, len(sa | sb))
+
+
 def load_gold_samples(data_processed: Path):
     files = [
         data_processed / 'benchmark_train.jsonl',
@@ -31,9 +42,7 @@ def load_gold_samples(data_processed: Path):
     all_rows = []
     for f in files:
         all_rows.extend(read_jsonl(f))
-
-    by_sample = {r.get('sample_id'): r for r in all_rows if r.get('sample_id')}
-    return by_sample
+    return {r.get('sample_id'): r for r in all_rows if r.get('sample_id')}
 
 
 def label_from_precision_recall(prec: float, rec: float) -> str:
@@ -44,7 +53,7 @@ def label_from_precision_recall(prec: float, rec: float) -> str:
     return 'partially_supported'
 
 
-def evaluate_one_sample(gold: dict, pred: dict):
+def evaluate_one_sample(gold: dict, pred: dict, text_match_threshold: float):
     gold_claims = gold.get('claims', [])
     pred_claims = pred.get('claims', [])
 
@@ -53,12 +62,28 @@ def evaluate_one_sample(gold: dict, pred: dict):
     macro_r = 0.0
     macro_f1 = 0.0
 
+    label_match_count = 0
+    high_text_match_count = 0
+    irrelevant_citation_count = 0
+    insufficient_citation_count = 0
+    no_citation_count = 0
+    overclaim_count = 0
+    temporal_mismatch_count = 0
+    exception_omission_count = 0
+    multi_authority_mismatch_count = 0
+
+    total_pred_citations = 0
+    total_gold_citations = 0
+
+    # claim-level evaluation aligned by index (same as existing evaluator)
     for idx, g in enumerate(gold_claims):
-        g_text = normalize_text(g.get('claim_text', ''))
+        g_text = g.get('claim_text', '')
+        g_text_n = normalize_text(g_text)
         g_cits = set(g.get('gold_citations', []) or [])
 
         p = pred_claims[idx] if idx < len(pred_claims) else {}
-        p_text = normalize_text(p.get('claim_text', ''))
+        p_text = p.get('claim_text', '')
+        p_text_n = normalize_text(p_text)
         p_cits = set(p.get('citations', []) or [])
 
         overlap = len(g_cits & p_cits)
@@ -66,38 +91,83 @@ def evaluate_one_sample(gold: dict, pred: dict):
         rec = overlap / len(g_cits) if g_cits else 0.0
         f1 = (2 * prec * rec / (prec + rec)) if (prec + rec) > 0 else 0.0
 
-        # text similarity: simple containment proxy
-        text_match = 0.0
-        if g_text and p_text:
-            if g_text in p_text or p_text in g_text:
-                text_match = 1.0
-            else:
-                # character overlap ratio
-                gs = set(g_text)
-                ps = set(p_text)
-                text_match = len(gs & ps) / max(1, len(gs | ps))
-
         predicted_support = label_from_precision_recall(prec, rec)
+        gold_support = g.get('support_label')
+
+        tmatch = text_similarity(g_text, p_text)
+        high_text_match = tmatch >= text_match_threshold
+
+        if gold_support and predicted_support == gold_support:
+            label_match_count += 1
+
+        if high_text_match:
+            high_text_match_count += 1
+
+        if not p_cits:
+            no_citation_count += 1
+        elif overlap == 0:
+            irrelevant_citation_count += 1
+        elif rec < 1.0:
+            insufficient_citation_count += 1
+
+        if p_cits and not g_cits.issuperset(p_cits):
+            # predicted citations include non-gold citations
+            overclaim_count += 1
+
+        # temporal mismatch proxy: gold is temporal-sensitive, text doesn't contain explicit time markers
+        if g.get('temporal_sensitive'):
+            has_time_marker = bool(re.search(r'(\d+\s*个?\s*工作日|\d+\s*日|期限|届满|提前|年度|月|年)', p_text_n))
+            if not has_time_marker:
+                temporal_mismatch_count += 1
+
+        # exception omission proxy
+        if g.get('requires_exception'):
+            has_exception_marker = any(k in p_text for k in ['例外', '除外', '但', '但是', '另有规定', '从其规定'])
+            if not has_exception_marker:
+                exception_omission_count += 1
+
+        # multi-authority mismatch proxy
+        if g.get('requires_multi_authority'):
+            # require >=2 distinct citations for such claim
+            if len(p_cits) < 2:
+                multi_authority_mismatch_count += 1
 
         details.append(
             {
                 'claim_id': g.get('claim_id'),
-                'gold_support_label': g.get('support_label'),
+                'gold_support_label': gold_support,
                 'predicted_support_label': predicted_support,
                 'citation_precision': round(prec, 4),
                 'citation_recall': round(rec, 4),
                 'citation_f1': round(f1, 4),
-                'text_match_score': round(text_match, 4),
+                'text_match_score': round(tmatch, 4),
+                'high_text_match': high_text_match,
                 'gold_citations': sorted(g_cits),
                 'pred_citations': sorted(p_cits),
+                'flags': {
+                    'irrelevant_citation': overlap == 0 and bool(p_cits),
+                    'insufficient_citation': bool(p_cits) and overlap > 0 and rec < 1.0,
+                    'no_citation': not bool(p_cits),
+                    'overclaim': bool(p_cits) and not g_cits.issuperset(p_cits),
+                    'temporal_mismatch': g.get('temporal_sensitive') and bool(re.search(r'(\\d+\\s*个?\\s*工作日|\\d+\\s*日|期限|届满|提前|年度|月|年)', p_text_n)) is False,
+                    'exception_omission': g.get('requires_exception') and not any(k in p_text for k in ['例外', '除外', '但', '但是', '另有规定', '从其规定']),
+                    'multi_authority_mismatch': g.get('requires_multi_authority') and len(p_cits) < 2,
+                },
             }
         )
 
         macro_p += prec
         macro_r += rec
         macro_f1 += f1
+        total_pred_citations += len(p_cits)
+        total_gold_citations += len(g_cits)
 
     n = max(1, len(gold_claims))
+    refusal = bool(pred.get('refusal', False))
+    policy = gold.get('answer_policy', {})
+    allow_refusal = bool(policy.get('allow_refusal', False))
+    refusal_violation = refusal and not allow_refusal
+
     return {
         'sample_id': gold.get('sample_id'),
         'claim_count_gold': len(gold_claims),
@@ -105,6 +175,20 @@ def evaluate_one_sample(gold: dict, pred: dict):
         'macro_citation_precision': round(macro_p / n, 4),
         'macro_citation_recall': round(macro_r / n, 4),
         'macro_citation_f1': round(macro_f1 / n, 4),
+        'claim_label_accuracy': round(label_match_count / n, 4),
+        'high_text_match_rate': round(high_text_match_count / n, 4),
+        'irrelevant_citation_rate': round(irrelevant_citation_count / n, 4),
+        'insufficient_citation_rate': round(insufficient_citation_count / n, 4),
+        'no_citation_rate': round(no_citation_count / n, 4),
+        'overclaim_rate': round(overclaim_count / n, 4),
+        'temporal_mismatch_rate': round(temporal_mismatch_count / n, 4),
+        'exception_omission_rate': round(exception_omission_count / n, 4),
+        'multi_authority_mismatch_rate': round(multi_authority_mismatch_count / n, 4),
+        'refusal': refusal,
+        'allow_refusal': allow_refusal,
+        'refusal_violation': refusal_violation,
+        'total_pred_citations': total_pred_citations,
+        'total_gold_citations': total_gold_citations,
         'details': details,
     }
 
@@ -116,26 +200,47 @@ def aggregate(results):
             'avg_macro_citation_precision': 0.0,
             'avg_macro_citation_recall': 0.0,
             'avg_macro_citation_f1': 0.0,
+            'avg_claim_label_accuracy': 0.0,
+            'avg_high_text_match_rate': 0.0,
+            'avg_irrelevant_citation_rate': 0.0,
+            'avg_insufficient_citation_rate': 0.0,
+            'avg_no_citation_rate': 0.0,
+            'avg_overclaim_rate': 0.0,
+            'avg_temporal_mismatch_rate': 0.0,
+            'avg_exception_omission_rate': 0.0,
+            'avg_multi_authority_mismatch_rate': 0.0,
+            'refusal_violation_count': 0,
         }
 
-    p = sum(r['macro_citation_precision'] for r in results) / len(results)
-    r = sum(r['macro_citation_recall'] for r in results) / len(results)
-    f1 = sum(r['macro_citation_f1'] for r in results) / len(results)
+    def avg(key):
+        return round(sum(r.get(key, 0.0) for r in results) / len(results), 4)
+
     return {
         'sample_count': len(results),
-        'avg_macro_citation_precision': round(p, 4),
-        'avg_macro_citation_recall': round(r, 4),
-        'avg_macro_citation_f1': round(f1, 4),
+        'avg_macro_citation_precision': avg('macro_citation_precision'),
+        'avg_macro_citation_recall': avg('macro_citation_recall'),
+        'avg_macro_citation_f1': avg('macro_citation_f1'),
+        'avg_claim_label_accuracy': avg('claim_label_accuracy'),
+        'avg_high_text_match_rate': avg('high_text_match_rate'),
+        'avg_irrelevant_citation_rate': avg('irrelevant_citation_rate'),
+        'avg_insufficient_citation_rate': avg('insufficient_citation_rate'),
+        'avg_no_citation_rate': avg('no_citation_rate'),
+        'avg_overclaim_rate': avg('overclaim_rate'),
+        'avg_temporal_mismatch_rate': avg('temporal_mismatch_rate'),
+        'avg_exception_omission_rate': avg('exception_omission_rate'),
+        'avg_multi_authority_mismatch_rate': avg('multi_authority_mismatch_rate'),
+        'refusal_violation_count': sum(1 for r in results if r.get('refusal_violation')),
     }
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Evaluate model outputs against benchmark claim-level citations.'
+        description='Evaluate model outputs against benchmark claim-level source-faithfulness metrics.'
     )
     parser.add_argument('--pred', required=True, help='Path to model output jsonl')
     parser.add_argument('--data-processed', default='data_processed', help='data_processed dir')
     parser.add_argument('--out', default='annotation/eval_report.json', help='output report json path')
+    parser.add_argument('--text-match-threshold', type=float, default=0.6, help='threshold for high text match')
     args = parser.parse_args()
 
     pred_path = Path(args.pred)
@@ -154,13 +259,22 @@ def main():
         if not gold:
             missing_gold.append(sid)
             continue
-        results.append(evaluate_one_sample(gold, p))
+        results.append(evaluate_one_sample(gold, p, args.text_match_threshold))
 
     summary = aggregate(results)
     report = {
         'summary': summary,
         'missing_gold_sample_ids': missing_gold,
         'results': results,
+        'metric_notes': {
+            'irrelevant_citation_rate': 'predicted citations exist but no overlap with gold citations',
+            'insufficient_citation_rate': 'some overlap exists but recall < 1.0',
+            'overclaim_rate': 'predicted citation set includes non-gold citations',
+            'exception_omission_rate': 'gold requires exception but predicted claim lacks exception marker',
+            'temporal_mismatch_rate': 'gold temporal-sensitive but predicted claim lacks explicit time marker',
+            'multi_authority_mismatch_rate': 'gold requires multi-authority but predicted claim has <2 citations',
+            'refusal_violation_count': 'prediction refused where answer_policy does not allow refusal',
+        },
     }
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -171,4 +285,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
