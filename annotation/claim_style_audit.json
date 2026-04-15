@@ -1,0 +1,147 @@
+{
+  "generated_at": "2026-04-15",
+  "method": {
+    "long_claim_threshold_chars": 180,
+    "very_long_claim_threshold_chars": 220,
+    "article_like_heuristic": "contains enumeration/list markers and length>=120"
+  },
+  "splits": {
+    "train": {
+      "sample_count": 84,
+      "claim_count": 252,
+      "long_claim_count_ge_180": 45,
+      "long_claim_ratio_ge_180": 0.1786,
+      "very_long_claim_count_ge_220": 12,
+      "very_long_claim_ratio_ge_220": 0.0476,
+      "article_like_claim_count": 0,
+      "article_like_claim_ratio": 0.0
+    },
+    "dev": {
+      "sample_count": 18,
+      "claim_count": 54,
+      "long_claim_count_ge_180": 9,
+      "long_claim_ratio_ge_180": 0.1667,
+      "very_long_claim_count_ge_220": 3,
+      "very_long_claim_ratio_ge_220": 0.0556,
+      "article_like_claim_count": 0,
+      "article_like_claim_ratio": 0.0
+    },
+    "test": {
+      "sample_count": 18,
+      "claim_count": 54,
+      "long_claim_count_ge_180": 15,
+      "long_claim_ratio_ge_180": 0.2778,
+      "very_long_claim_count_ge_220": 5,
+      "very_long_claim_ratio_ge_220": 0.0926,
+      "article_like_claim_count": 0,
+      "article_like_claim_ratio": 0.0
+    }
+  },
+  "test_long_claim_examples": [
+    {
+      "sample_id": "sample_0110",
+      "claim_id": "sample_0110_claim_2",
+      "question_type": "例外/但书问答",
+      "length_chars": 344,
+      "preview": "第六条 网络信息内容生产者不得制作、复制、发布含有下列内容的违法信息： (一)反对宪法所确定的基本原则的； (二)危害国家安全，泄露国家秘密，颠覆国家政权，破坏国家统一的； (三)损害国家荣誉和利益的； (四)歪曲、丑化、亵渎、否定英雄烈士"
+    },
+    {
+      "sample_id": "sample_0109",
+      "claim_id": "sample_0109_claim_1",
+      "question_type": "程序义务问答",
+      "length_chars": 234,
+      "preview": "网络运营者委托第三方处理儿童个人信息的，应当对受委托方及委托行为等进行安全评估，签署委托协议，明确双方责任、处理事项、处理期限、处理性质和目的等，委托行为不得超出授权范围。前款规定的受委托方，应当履行以下义务：（一）按照法律、行政法规的规定"
+    },
+    {
+      "sample_id": "sample_0104",
+      "claim_id": "sample_0104_claim_3",
+      "question_type": "直接法条问答",
+      "length_chars": 233,
+      "preview": "国家秘密载体管理应当遵守下列规定：(一)制作国家秘密载体，应当由机关、单位或者经保密行政管理部门保密审查合格的单位承担，制作场所应当符合保密要求。(二)收发国家秘密载体，应当履行清点、编号、登记、签收手续。(三)传递国家秘密载体，应当通过机"
+    },
+    {
+      "sample_id": "sample_0108",
+      "claim_id": "sample_0108_claim_2",
+      "question_type": "程序义务问答",
+      "length_chars": 230,
+      "preview": "网信部门进行案件调查取证，应当由具有行政执法资格的执法人员实施。执法人员不得少于两人，并应当主动向当事人或者有关人员出示执法证件。必要时，可以聘请专业人员进行协助。首次向案件当事人收集、调取证据的，应当告知其有申请执法人员回避的权利。向有关"
+    },
+    {
+      "sample_id": "sample_0111",
+      "claim_id": "sample_0111_claim_2",
+      "question_type": "多法源联合问答",
+      "length_chars": 225,
+      "preview": "第四条个人信息处理者通过订立标准合同的方式向境外提供个人信息的，应当同时符合下列情形：（一）非关键信息基础设施运营者；（二）处理个人信息不满100 万人的；（三）自上年1 月1 日起累计向境外提供个人信息不满10 万人的；（四）自上年1 月"
+    },
+    {
+      "sample_id": "sample_0108",
+      "claim_id": "sample_0108_claim_1",
+      "question_type": "程序义务问答",
+      "length_chars": 217,
+      "preview": "上级网信部门认为必要的，可以直接办理下级网信部门管辖的案件，也可以将本部门管辖的案件交由下级网信部门办理。法律、行政法规、部门规章明确规定案件应当由上级网信部门管辖的，上级网信部门不得将案件交由下级网信部门管辖。下级网信部门对其管辖的案件由"
+    },
+    {
+      "sample_id": "sample_0119",
+      "claim_id": "sample_0119_claim_1",
+      "question_type": "直接法条问答",
+      "length_chars": 217,
+      "preview": "未经用户同意，电信业务经营者、互联网信息服务提供者不得收集、使用用户个人信息。电信业务经营者、互联网信息服务提供者收集、使用用户个人信息的，应当明确告知用户收集、使用信息的目的、方式和范围，查询、更正信息的渠道以及拒绝提供信息的后果等事项。"
+    },
+    {
+      "sample_id": "sample_0118",
+      "claim_id": "sample_0118_claim_1",
+      "question_type": "条件/要件问答",
+      "length_chars": 215,
+      "preview": "个人信息处理者通过订立标准合同的方式向境外提供个人信息的，应当同时符合下列情形：（一）非关键信息基础设施运营者；（二）处理个人信息不满100万人的；（三）自上年1月1日起累计向境外提供个人信息不满10万人的；（四）自上年1月1日起累计向境外"
+    },
+    {
+      "sample_id": "sample_0113",
+      "claim_id": "sample_0113_claim_2",
+      "question_type": "条件/要件问答",
+      "length_chars": 198,
+      "preview": "数据处理者向境外提供数据，有下列情形之一的，应当通过所在地省级网信部门向国家网信部门申报数据出境安全评估：（一）数据处理者向境外提供重要数据；（二）关键信息基础设施运营者和处理100万人以上个人信息的数据处理者向境外提供个人信息；（三）自上"
+    },
+    {
+      "sample_id": "sample_0114",
+      "claim_id": "sample_0114_claim_1",
+      "question_type": "直接法条问答",
+      "length_chars": 198,
+      "preview": "任何组织和个人不得利用深度合成服务制作、复制、发布、传播法律、行政法规禁止的信息，不得利用深度合成服务从事危害国家安全和利益、损害国家形象、侵害社会公共利益、扰乱经济和社会秩序、侵犯他人合法权益等法律、行政法规禁止的活动。深度合成服务提供者"
+    },
+    {
+      "sample_id": "sample_0114",
+      "claim_id": "sample_0114_claim_3",
+      "question_type": "直接法条问答",
+      "length_chars": 195,
+      "preview": "网信部门和电信主管部门、公安部门依据职责对深度合成服务开展监督检查。深度合成服务提供者和技术支持者应当依法予以配合，并提供必要的技术、数据等支持和协助。网信部门和有关主管部门发现深度合成服务存在较大信息安全风险的，可以按照职责依法要求深度合"
+    },
+    {
+      "sample_id": "sample_0119",
+      "claim_id": "sample_0119_claim_2",
+      "question_type": "直接法条问答",
+      "length_chars": 195,
+      "preview": "电信管理机构应当对电信业务经营者、互联网信息服务提供者保护用户个人信息的情况实施监督检查。电信管理机构实施监督检查时，可以要求电信业务经营者、互联网信息服务提供者提供相关材料，进入其生产经营场所调查情况，电信业务经营者、互联网信息服务提供者"
+    },
+    {
+      "sample_id": "sample_0108",
+      "claim_id": "sample_0108_claim_3",
+      "question_type": "程序义务问答",
+      "length_chars": 193,
+      "preview": "在证据可能灭失或者以后难以取得的情况下，经网信部门负责人批准，执法人员可以依法对涉案计算机、服务器、硬盘、移动存储设备、存储卡等涉嫌实施违法行为的物品先行登记保存，制作登记保存物品清单，向当事人出具登记保存物品通知书。先行登记保存期间，当事"
+    },
+    {
+      "sample_id": "sample_0117",
+      "claim_id": "sample_0117_claim_2",
+      "question_type": "直接法条问答",
+      "length_chars": 185,
+      "preview": "任何组织和个人不得制作、复制、发布、传播涉网络暴力违法信息，应当防范和抵制制作、复制、发布、传播涉网络暴力不良信息。任何组织和个人不得利用网络暴力事件实施蹭炒热度、推广引流等营销炒作行为，不得通过批量注册或者操纵用户账号等形式组织制作、复制"
+    },
+    {
+      "sample_id": "sample_0105",
+      "claim_id": "sample_0105_claim_2",
+      "question_type": "条件/要件问答",
+      "length_chars": 180,
+      "preview": "算法推荐服务提供者向未成年人提供服务的，应当依法履行未成年人网络保护义务，并通过开发适合未成年人使用的模式、提供适合未成年人特点的服务等方式，便利未成年人获取有益身心健康的信息。算法推荐服务提供者不得向未成年人推送可能引发未成年人模仿不安全"
+    }
+  ]
+}

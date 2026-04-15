@@ -104,6 +104,11 @@
 完整长版示例见：
 
 - [manual_revision_examples.md](./manual_revision_examples.md)
+- [release_audit.md](./release_audit.md)
+- [annotation/adjudication_summary.json](./annotation/adjudication_summary.json)
+- [annotation/claim_style_audit.json](./annotation/claim_style_audit.json)
+- [claim_length_and_style_audit.md](./claim_length_and_style_audit.md)
+- [paper_section_draft.md](./paper_section_draft.md)
 
 如果只想在 README 或论文正文里展示“为什么 benchmark 不能纯自动扩展”，下面这一张主表 + 3 个案例通常就够用了。
 
