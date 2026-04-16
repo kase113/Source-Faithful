@@ -2,6 +2,7 @@ import argparse
 import json
 import re
 from pathlib import Path
+from itertools import permutations
 
 
 def read_jsonl(path: Path):
@@ -53,6 +54,67 @@ def label_from_precision_recall(prec: float, rec: float) -> str:
     return 'partially_supported'
 
 
+def citation_jaccard(a: set, b: set) -> float:
+    if not a and not b:
+        return 1.0
+    if not a or not b:
+        return 0.0
+    return len(a & b) / max(1, len(a | b))
+
+
+def find_best_alignment(gold_claims, pred_claims):
+    """
+    Align gold claims to predicted claims by maximizing a combined score:
+    score = 0.7 * text_similarity + 0.3 * citation_jaccard
+    Returns dict: gold_idx -> pred_idx (or None if unmatched).
+    """
+    n = len(gold_claims)
+    m = len(pred_claims)
+    if n == 0:
+        return {}
+    if m == 0:
+        return {i: None for i in range(n)}
+
+    score = [[0.0 for _ in range(m)] for _ in range(n)]
+    for i, g in enumerate(gold_claims):
+        g_text = g.get('claim_text', '')
+        g_cits = set(g.get('gold_citations', []) or [])
+        for j, p in enumerate(pred_claims):
+            p_text = p.get('claim_text', '')
+            p_cits = set(p.get('citations', []) or [])
+            s_text = text_similarity(g_text, p_text)
+            s_cit = citation_jaccard(g_cits, p_cits)
+            score[i][j] = 0.7 * s_text + 0.3 * s_cit
+
+    # For current benchmark, claim count per sample is small (typically <=4),
+    # so exhaustive permutation is deterministic and sufficient.
+    if n <= m:
+        best_total = -1.0
+        best_perm = None
+        for perm in permutations(range(m), n):
+            total = sum(score[i][perm[i]] for i in range(n))
+            if total > best_total:
+                best_total = total
+                best_perm = perm
+        return {i: best_perm[i] for i in range(n)}
+
+    # n > m: assign each prediction to a unique gold claim, remaining unmatched
+    best_total = -1.0
+    best_gold_idx = None
+    best_perm = None
+    for gold_idx in permutations(range(n), m):
+        for perm in permutations(range(m), m):
+            total = sum(score[gold_idx[k]][perm[k]] for k in range(m))
+            if total > best_total:
+                best_total = total
+                best_gold_idx = gold_idx
+                best_perm = perm
+    align = {i: None for i in range(n)}
+    for k in range(m):
+        align[best_gold_idx[k]] = best_perm[k]
+    return align
+
+
 def evaluate_one_sample(gold: dict, pred: dict, text_match_threshold: float):
     gold_claims = gold.get('claims', [])
     pred_claims = pred.get('claims', [])
@@ -75,13 +137,16 @@ def evaluate_one_sample(gold: dict, pred: dict, text_match_threshold: float):
     total_pred_citations = 0
     total_gold_citations = 0
 
-    # claim-level evaluation aligned by index (same as existing evaluator)
+    alignment = find_best_alignment(gold_claims, pred_claims)
+
+    # claim-level evaluation aligned by semantic+citation matching
     for idx, g in enumerate(gold_claims):
         g_text = g.get('claim_text', '')
         g_text_n = normalize_text(g_text)
         g_cits = set(g.get('gold_citations', []) or [])
 
-        p = pred_claims[idx] if idx < len(pred_claims) else {}
+        p_idx = alignment.get(idx)
+        p = pred_claims[p_idx] if p_idx is not None and p_idx < len(pred_claims) else {}
         p_text = p.get('claim_text', '')
         p_text_n = normalize_text(p_text)
         p_cits = set(p.get('citations', []) or [])
@@ -135,6 +200,7 @@ def evaluate_one_sample(gold: dict, pred: dict, text_match_threshold: float):
         details.append(
             {
                 'claim_id': g.get('claim_id'),
+                'matched_pred_claim_index': p_idx,
                 'gold_support_label': gold_support,
                 'predicted_support_label': predicted_support,
                 'citation_precision': round(prec, 4),
@@ -172,6 +238,7 @@ def evaluate_one_sample(gold: dict, pred: dict, text_match_threshold: float):
         'sample_id': gold.get('sample_id'),
         'claim_count_gold': len(gold_claims),
         'claim_count_pred': len(pred_claims),
+        'alignment_method': 'semantic_citation_best_match',
         'macro_citation_precision': round(macro_p / n, 4),
         'macro_citation_recall': round(macro_r / n, 4),
         'macro_citation_f1': round(macro_f1 / n, 4),

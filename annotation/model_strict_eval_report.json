@@ -2,12 +2,12 @@
   "summary": {
     "sample_count": 18,
     "avg_macro_citation_precision": 0.0185,
-    "avg_macro_citation_recall": 0.0093,
-    "avg_macro_citation_f1": 0.0123,
-    "avg_claim_label_accuracy": 0.0,
+    "avg_macro_citation_recall": 0.0185,
+    "avg_macro_citation_f1": 0.0185,
+    "avg_claim_label_accuracy": 0.0185,
     "avg_high_text_match_rate": 0.0,
     "avg_irrelevant_citation_rate": 0.9815,
-    "avg_insufficient_citation_rate": 0.0185,
+    "avg_insufficient_citation_rate": 0.0,
     "avg_no_citation_rate": 0.0,
     "avg_overclaim_rate": 0.9815,
     "avg_temporal_mismatch_rate": 0.2407,
@@ -21,13 +21,14 @@
       "sample_id": "sample_0103",
       "claim_count_gold": 3,
       "claim_count_pred": 3,
+      "alignment_method": "semantic_citation_best_match",
       "macro_citation_precision": 0.3333,
-      "macro_citation_recall": 0.1667,
-      "macro_citation_f1": 0.2222,
-      "claim_label_accuracy": 0.0,
+      "macro_citation_recall": 0.3333,
+      "macro_citation_f1": 0.3333,
+      "claim_label_accuracy": 0.3333,
       "high_text_match_rate": 0.0,
       "irrelevant_citation_rate": 0.6667,
-      "insufficient_citation_rate": 0.3333,
+      "insufficient_citation_rate": 0.0,
       "no_citation_rate": 0.0,
       "overclaim_rate": 0.6667,
       "temporal_mismatch_rate": 0.0,
@@ -41,24 +42,25 @@
       "details": [
         {
           "claim_id": "sample_0103_claim_1",
+          "matched_pred_claim_index": 2,
           "gold_support_label": "supported",
-          "predicted_support_label": "unsupported",
-          "citation_precision": 0.0,
-          "citation_recall": 0.0,
-          "citation_f1": 0.0,
-          "text_match_score": 0.06,
+          "predicted_support_label": "supported",
+          "citation_precision": 1.0,
+          "citation_recall": 1.0,
+          "citation_f1": 1.0,
+          "text_match_score": 0.0588,
           "high_text_match": false,
           "gold_citations": [
             "reg_online_gov_services_2019_art002"
           ],
           "pred_citations": [
-            "reg_online_gov_services_2019_art001"
+            "reg_online_gov_services_2019_art002"
           ],
           "flags": {
-            "irrelevant_citation": true,
+            "irrelevant_citation": false,
             "insufficient_citation": false,
             "no_citation": false,
-            "overclaim": true,
+            "overclaim": false,
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
@@ -66,6 +68,7 @@
         },
         {
           "claim_id": "sample_0103_claim_2",
+          "matched_pred_claim_index": 1,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
@@ -91,25 +94,26 @@
         },
         {
           "claim_id": "sample_0103_claim_3",
+          "matched_pred_claim_index": 0,
           "gold_support_label": "supported",
-          "predicted_support_label": "partially_supported",
-          "citation_precision": 1.0,
-          "citation_recall": 0.5,
-          "citation_f1": 0.6667,
-          "text_match_score": 0.0,
+          "predicted_support_label": "unsupported",
+          "citation_precision": 0.0,
+          "citation_recall": 0.0,
+          "citation_f1": 0.0,
+          "text_match_score": 0.1,
           "high_text_match": false,
           "gold_citations": [
             "reg_online_gov_services_2019_art002",
             "rule_content_ecology_2019_art008"
           ],
           "pred_citations": [
-            "reg_online_gov_services_2019_art002"
+            "reg_online_gov_services_2019_art001"
           ],
           "flags": {
-            "irrelevant_citation": false,
-            "insufficient_citation": true,
+            "irrelevant_citation": true,
+            "insufficient_citation": false,
             "no_citation": false,
-            "overclaim": false,
+            "overclaim": true,
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": true
@@ -121,6 +125,7 @@
       "sample_id": "sample_0104",
       "claim_count_gold": 3,
       "claim_count_pred": 3,
+      "alignment_method": "semantic_citation_best_match",
       "macro_citation_precision": 0.0,
       "macro_citation_recall": 0.0,
       "macro_citation_f1": 0.0,
@@ -141,18 +146,19 @@
       "details": [
         {
           "claim_id": "sample_0104_claim_1",
+          "matched_pred_claim_index": 2,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0204,
+          "text_match_score": 0.1087,
           "high_text_match": false,
           "gold_citations": [
             "reg_state_secrets_impl_2024_art005"
           ],
           "pred_citations": [
-            "reg_state_secrets_impl_2024_art001"
+            "reg_state_secrets_impl_2024_art002"
           ],
           "flags": {
             "irrelevant_citation": true,
@@ -166,12 +172,13 @@
         },
         {
           "claim_id": "sample_0104_claim_2",
+          "matched_pred_claim_index": 0,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0471,
+          "text_match_score": 0.0875,
           "high_text_match": false,
           "gold_citations": [
             "reg_state_secrets_impl_2024_art016"
@@ -191,18 +198,19 @@
         },
         {
           "claim_id": "sample_0104_claim_3",
+          "matched_pred_claim_index": 1,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0556,
+          "text_match_score": 0.0894,
           "high_text_match": false,
           "gold_citations": [
             "reg_state_secrets_impl_2024_art021"
           ],
           "pred_citations": [
-            "reg_state_secrets_impl_2024_art002"
+            "reg_state_secrets_impl_2024_art001"
           ],
           "flags": {
             "irrelevant_citation": true,
@@ -220,6 +228,7 @@
       "sample_id": "sample_0105",
       "claim_count_gold": 3,
       "claim_count_pred": 3,
+      "alignment_method": "semantic_citation_best_match",
       "macro_citation_precision": 0.0,
       "macro_citation_recall": 0.0,
       "macro_citation_f1": 0.0,
@@ -240,12 +249,13 @@
       "details": [
         {
           "claim_id": "sample_0105_claim_1",
+          "matched_pred_claim_index": 1,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0556,
+          "text_match_score": 0.0685,
           "high_text_match": false,
           "gold_citations": [
             "rule_algo_recommend_2021_art013"
@@ -265,12 +275,13 @@
         },
         {
           "claim_id": "sample_0105_claim_2",
+          "matched_pred_claim_index": 0,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.051,
+          "text_match_score": 0.0412,
           "high_text_match": false,
           "gold_citations": [
             "rule_algo_recommend_2021_art018"
@@ -290,6 +301,7 @@
         },
         {
           "claim_id": "sample_0105_claim_3",
+          "matched_pred_claim_index": 2,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
@@ -319,6 +331,7 @@
       "sample_id": "sample_0106",
       "claim_count_gold": 3,
       "claim_count_pred": 3,
+      "alignment_method": "semantic_citation_best_match",
       "macro_citation_precision": 0.0,
       "macro_citation_recall": 0.0,
       "macro_citation_f1": 0.0,
@@ -339,6 +352,7 @@
       "details": [
         {
           "claim_id": "sample_0106_claim_1",
+          "matched_pred_claim_index": 0,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
@@ -364,6 +378,7 @@
         },
         {
           "claim_id": "sample_0106_claim_2",
+          "matched_pred_claim_index": 1,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
@@ -389,6 +404,7 @@
         },
         {
           "claim_id": "sample_0106_claim_3",
+          "matched_pred_claim_index": 2,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
@@ -418,6 +434,7 @@
       "sample_id": "sample_0107",
       "claim_count_gold": 3,
       "claim_count_pred": 3,
+      "alignment_method": "semantic_citation_best_match",
       "macro_citation_precision": 0.0,
       "macro_citation_recall": 0.0,
       "macro_citation_f1": 0.0,
@@ -438,12 +455,13 @@
       "details": [
         {
           "claim_id": "sample_0107_claim_1",
+          "matched_pred_claim_index": 1,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0345,
+          "text_match_score": 0.0698,
           "high_text_match": false,
           "gold_citations": [
             "rule_blockchain_info_service_2019_art008"
@@ -463,12 +481,13 @@
         },
         {
           "claim_id": "sample_0107_claim_2",
+          "matched_pred_claim_index": 0,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0562,
+          "text_match_score": 0.0337,
           "high_text_match": false,
           "gold_citations": [
             "rule_blockchain_info_service_2019_art016"
@@ -488,6 +507,7 @@
         },
         {
           "claim_id": "sample_0107_claim_3",
+          "matched_pred_claim_index": 2,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
@@ -517,6 +537,7 @@
       "sample_id": "sample_0108",
       "claim_count_gold": 3,
       "claim_count_pred": 3,
+      "alignment_method": "semantic_citation_best_match",
       "macro_citation_precision": 0.0,
       "macro_citation_recall": 0.0,
       "macro_citation_f1": 0.0,
@@ -537,12 +558,13 @@
       "details": [
         {
           "claim_id": "sample_0108_claim_1",
+          "matched_pred_claim_index": 0,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0,
+          "text_match_score": 0.1176,
           "high_text_match": false,
           "gold_citations": [
             "rule_cac_enforcement_procedure_2023_art011"
@@ -562,12 +584,13 @@
         },
         {
           "claim_id": "sample_0108_claim_2",
+          "matched_pred_claim_index": 1,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0,
+          "text_match_score": 0.0928,
           "high_text_match": false,
           "gold_citations": [
             "rule_cac_enforcement_procedure_2023_art019"
@@ -587,12 +610,13 @@
         },
         {
           "claim_id": "sample_0108_claim_3",
+          "matched_pred_claim_index": 2,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0,
+          "text_match_score": 0.0882,
           "high_text_match": false,
           "gold_citations": [
             "rule_cac_enforcement_procedure_2023_art028"
@@ -616,6 +640,7 @@
       "sample_id": "sample_0109",
       "claim_count_gold": 3,
       "claim_count_pred": 3,
+      "alignment_method": "semantic_citation_best_match",
       "macro_citation_precision": 0.0,
       "macro_citation_recall": 0.0,
       "macro_citation_f1": 0.0,
@@ -636,12 +661,13 @@
       "details": [
         {
           "claim_id": "sample_0109_claim_1",
+          "matched_pred_claim_index": 1,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0305,
+          "text_match_score": 0.0787,
           "high_text_match": false,
           "gold_citations": [
             "rule_children_pi_network_2019_art016"
@@ -661,18 +687,19 @@
         },
         {
           "claim_id": "sample_0109_claim_2",
+          "matched_pred_claim_index": 2,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0702,
+          "text_match_score": 0.1321,
           "high_text_match": false,
           "gold_citations": [
             "rule_children_pi_network_2019_art018"
           ],
           "pred_citations": [
-            "rule_children_pi_network_2019_art001"
+            "rule_children_pi_network_2019_art002"
           ],
           "flags": {
             "irrelevant_citation": true,
@@ -686,18 +713,19 @@
         },
         {
           "claim_id": "sample_0109_claim_3",
+          "matched_pred_claim_index": 0,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0746,
+          "text_match_score": 0.0597,
           "high_text_match": false,
           "gold_citations": [
             "rule_children_pi_network_2019_art014"
           ],
           "pred_citations": [
-            "rule_children_pi_network_2019_art002"
+            "rule_children_pi_network_2019_art001"
           ],
           "flags": {
             "irrelevant_citation": true,
@@ -715,6 +743,7 @@
       "sample_id": "sample_0110",
       "claim_count_gold": 3,
       "claim_count_pred": 3,
+      "alignment_method": "semantic_citation_best_match",
       "macro_citation_precision": 0.0,
       "macro_citation_recall": 0.0,
       "macro_citation_f1": 0.0,
@@ -735,12 +764,13 @@
       "details": [
         {
           "claim_id": "sample_0110_claim_1",
+          "matched_pred_claim_index": 1,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0339,
+          "text_match_score": 0.0862,
           "high_text_match": false,
           "gold_citations": [
             "rule_content_ecology_2019_art004"
@@ -760,18 +790,19 @@
         },
         {
           "claim_id": "sample_0110_claim_2",
+          "matched_pred_claim_index": 2,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0,
+          "text_match_score": 0.0536,
           "high_text_match": false,
           "gold_citations": [
             "rule_content_ecology_2019_art006"
           ],
           "pred_citations": [
-            "rule_content_ecology_2019_art001"
+            "rule_content_ecology_2019_art002"
           ],
           "flags": {
             "irrelevant_citation": true,
@@ -785,18 +816,19 @@
         },
         {
           "claim_id": "sample_0110_claim_3",
+          "matched_pred_claim_index": 0,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0769,
+          "text_match_score": 0.0615,
           "high_text_match": false,
           "gold_citations": [
             "rule_content_ecology_2019_art013"
           ],
           "pred_citations": [
-            "rule_content_ecology_2019_art002"
+            "rule_content_ecology_2019_art001"
           ],
           "flags": {
             "irrelevant_citation": true,
@@ -814,6 +846,7 @@
       "sample_id": "sample_0111",
       "claim_count_gold": 3,
       "claim_count_pred": 3,
+      "alignment_method": "semantic_citation_best_match",
       "macro_citation_precision": 0.0,
       "macro_citation_recall": 0.0,
       "macro_citation_f1": 0.0,
@@ -834,6 +867,7 @@
       "details": [
         {
           "claim_id": "sample_0111_claim_1",
+          "matched_pred_claim_index": 0,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
@@ -859,18 +893,19 @@
         },
         {
           "claim_id": "sample_0111_claim_2",
+          "matched_pred_claim_index": 2,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0439,
+          "text_match_score": 0.0609,
           "high_text_match": false,
           "gold_citations": [
             "rule_pi_export_std_contract_2023_art004"
           ],
           "pred_citations": [
-            "rule_cross_border_data_flow_2024_art001"
+            "rule_cross_border_data_flow_2024_art002"
           ],
           "flags": {
             "irrelevant_citation": true,
@@ -884,19 +919,20 @@
         },
         {
           "claim_id": "sample_0111_claim_3",
+          "matched_pred_claim_index": 1,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.069,
+          "text_match_score": 0.0714,
           "high_text_match": false,
           "gold_citations": [
             "rule_cross_border_data_flow_2024_art012",
             "rule_pi_export_std_contract_2023_art006"
           ],
           "pred_citations": [
-            "rule_cross_border_data_flow_2024_art002"
+            "rule_cross_border_data_flow_2024_art001"
           ],
           "flags": {
             "irrelevant_citation": true,
@@ -914,6 +950,7 @@
       "sample_id": "sample_0112",
       "claim_count_gold": 3,
       "claim_count_pred": 3,
+      "alignment_method": "semantic_citation_best_match",
       "macro_citation_precision": 0.0,
       "macro_citation_recall": 0.0,
       "macro_citation_f1": 0.0,
@@ -934,6 +971,7 @@
       "details": [
         {
           "claim_id": "sample_0112_claim_1",
+          "matched_pred_claim_index": 0,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
@@ -959,18 +997,19 @@
         },
         {
           "claim_id": "sample_0112_claim_2",
+          "matched_pred_claim_index": 2,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0577,
+          "text_match_score": 0.0583,
           "high_text_match": false,
           "gold_citations": [
             "rule_cybersecurity_review_2021_art010"
           ],
           "pred_citations": [
-            "rule_cybersecurity_review_2021_art001"
+            "rule_cybersecurity_review_2021_art002"
           ],
           "flags": {
             "irrelevant_citation": true,
@@ -984,18 +1023,19 @@
         },
         {
           "claim_id": "sample_0112_claim_3",
+          "matched_pred_claim_index": 1,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0816,
+          "text_match_score": 0.125,
           "high_text_match": false,
           "gold_citations": [
             "rule_cybersecurity_review_2021_art013"
           ],
           "pred_citations": [
-            "rule_cybersecurity_review_2021_art002"
+            "rule_cybersecurity_review_2021_art001"
           ],
           "flags": {
             "irrelevant_citation": true,
@@ -1013,6 +1053,7 @@
       "sample_id": "sample_0113",
       "claim_count_gold": 3,
       "claim_count_pred": 3,
+      "alignment_method": "semantic_citation_best_match",
       "macro_citation_precision": 0.0,
       "macro_citation_recall": 0.0,
       "macro_citation_f1": 0.0,
@@ -1033,18 +1074,19 @@
       "details": [
         {
           "claim_id": "sample_0113_claim_1",
+          "matched_pred_claim_index": 2,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0247,
+          "text_match_score": 0.0769,
           "high_text_match": false,
           "gold_citations": [
             "rule_data_export_security_assessment_2022_art015"
           ],
           "pred_citations": [
-            "rule_data_export_security_assessment_2022_art001"
+            "rule_data_export_security_assessment_2022_art002"
           ],
           "flags": {
             "irrelevant_citation": true,
@@ -1058,12 +1100,13 @@
         },
         {
           "claim_id": "sample_0113_claim_2",
+          "matched_pred_claim_index": 0,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0,
+          "text_match_score": 0.022,
           "high_text_match": false,
           "gold_citations": [
             "rule_data_export_security_assessment_2022_art004"
@@ -1083,18 +1126,19 @@
         },
         {
           "claim_id": "sample_0113_claim_3",
+          "matched_pred_claim_index": 1,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.1058,
+          "text_match_score": 0.1154,
           "high_text_match": false,
           "gold_citations": [
             "rule_data_export_security_assessment_2022_art009"
           ],
           "pred_citations": [
-            "rule_data_export_security_assessment_2022_art002"
+            "rule_data_export_security_assessment_2022_art001"
           ],
           "flags": {
             "irrelevant_citation": true,
@@ -1112,6 +1156,7 @@
       "sample_id": "sample_0114",
       "claim_count_gold": 3,
       "claim_count_pred": 3,
+      "alignment_method": "semantic_citation_best_match",
       "macro_citation_precision": 0.0,
       "macro_citation_recall": 0.0,
       "macro_citation_f1": 0.0,
@@ -1132,18 +1177,19 @@
       "details": [
         {
           "claim_id": "sample_0114_claim_1",
+          "matched_pred_claim_index": 2,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0286,
+          "text_match_score": 0.0481,
           "high_text_match": false,
           "gold_citations": [
             "rule_deep_synthesis_2022_art006"
           ],
           "pred_citations": [
-            "rule_deep_synthesis_2022_art001"
+            "rule_deep_synthesis_2022_art002"
           ],
           "flags": {
             "irrelevant_citation": true,
@@ -1157,6 +1203,7 @@
         },
         {
           "claim_id": "sample_0114_claim_2",
+          "matched_pred_claim_index": 1,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
@@ -1182,18 +1229,19 @@
         },
         {
           "claim_id": "sample_0114_claim_3",
+          "matched_pred_claim_index": 0,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0654,
+          "text_match_score": 0.0561,
           "high_text_match": false,
           "gold_citations": [
             "rule_deep_synthesis_2022_art023"
           ],
           "pred_citations": [
-            "rule_deep_synthesis_2022_art002"
+            "rule_deep_synthesis_2022_art001"
           ],
           "flags": {
             "irrelevant_citation": true,
@@ -1211,6 +1259,7 @@
       "sample_id": "sample_0115",
       "claim_count_gold": 3,
       "claim_count_pred": 3,
+      "alignment_method": "semantic_citation_best_match",
       "macro_citation_precision": 0.0,
       "macro_citation_recall": 0.0,
       "macro_citation_f1": 0.0,
@@ -1231,6 +1280,7 @@
       "details": [
         {
           "claim_id": "sample_0115_claim_1",
+          "matched_pred_claim_index": 0,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
@@ -1256,18 +1306,19 @@
         },
         {
           "claim_id": "sample_0115_claim_2",
+          "matched_pred_claim_index": 2,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0723,
+          "text_match_score": 0.0864,
           "high_text_match": false,
           "gold_citations": [
             "rule_genai_2023_art011"
           ],
           "pred_citations": [
-            "rule_genai_2023_art001"
+            "rule_genai_2023_art002"
           ],
           "flags": {
             "irrelevant_citation": true,
@@ -1281,18 +1332,19 @@
         },
         {
           "claim_id": "sample_0115_claim_3",
+          "matched_pred_claim_index": 1,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0763,
+          "text_match_score": 0.0756,
           "high_text_match": false,
           "gold_citations": [
             "rule_genai_2023_art019"
           ],
           "pred_citations": [
-            "rule_genai_2023_art002"
+            "rule_genai_2023_art001"
           ],
           "flags": {
             "irrelevant_citation": true,
@@ -1310,6 +1362,7 @@
       "sample_id": "sample_0116",
       "claim_count_gold": 3,
       "claim_count_pred": 3,
+      "alignment_method": "semantic_citation_best_match",
       "macro_citation_precision": 0.0,
       "macro_citation_recall": 0.0,
       "macro_citation_f1": 0.0,
@@ -1330,6 +1383,7 @@
       "details": [
         {
           "claim_id": "sample_0116_claim_1",
+          "matched_pred_claim_index": 0,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
@@ -1355,18 +1409,19 @@
         },
         {
           "claim_id": "sample_0116_claim_2",
+          "matched_pred_claim_index": 2,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0548,
+          "text_match_score": 0.0704,
           "high_text_match": false,
           "gold_citations": [
             "rule_internet_news_service_2017_art007"
           ],
           "pred_citations": [
-            "rule_internet_news_service_2017_art001"
+            "rule_internet_news_service_2017_art002"
           ],
           "flags": {
             "irrelevant_citation": true,
@@ -1380,18 +1435,19 @@
         },
         {
           "claim_id": "sample_0116_claim_3",
+          "matched_pred_claim_index": 1,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0638,
+          "text_match_score": 0.1099,
           "high_text_match": false,
           "gold_citations": [
             "rule_internet_news_service_2017_art005"
           ],
           "pred_citations": [
-            "rule_internet_news_service_2017_art002"
+            "rule_internet_news_service_2017_art001"
           ],
           "flags": {
             "irrelevant_citation": true,
@@ -1409,6 +1465,7 @@
       "sample_id": "sample_0117",
       "claim_count_gold": 3,
       "claim_count_pred": 3,
+      "alignment_method": "semantic_citation_best_match",
       "macro_citation_precision": 0.0,
       "macro_citation_recall": 0.0,
       "macro_citation_f1": 0.0,
@@ -1429,18 +1486,19 @@
       "details": [
         {
           "claim_id": "sample_0117_claim_1",
+          "matched_pred_claim_index": 2,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0,
+          "text_match_score": 0.0877,
           "high_text_match": false,
           "gold_citations": [
             "rule_online_violence_governance_2024_art008"
           ],
           "pred_citations": [
-            "rule_online_violence_governance_2024_art001"
+            "rule_online_violence_governance_2024_art002"
           ],
           "flags": {
             "irrelevant_citation": true,
@@ -1454,12 +1512,13 @@
         },
         {
           "claim_id": "sample_0117_claim_2",
+          "matched_pred_claim_index": 0,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0,
+          "text_match_score": 0.0519,
           "high_text_match": false,
           "gold_citations": [
             "rule_online_violence_governance_2024_art010"
@@ -1479,18 +1538,19 @@
         },
         {
           "claim_id": "sample_0117_claim_3",
+          "matched_pred_claim_index": 1,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0,
+          "text_match_score": 0.0658,
           "high_text_match": false,
           "gold_citations": [
             "rule_online_violence_governance_2024_art014"
           ],
           "pred_citations": [
-            "rule_online_violence_governance_2024_art002"
+            "rule_online_violence_governance_2024_art001"
           ],
           "flags": {
             "irrelevant_citation": true,
@@ -1508,6 +1568,7 @@
       "sample_id": "sample_0118",
       "claim_count_gold": 3,
       "claim_count_pred": 3,
+      "alignment_method": "semantic_citation_best_match",
       "macro_citation_precision": 0.0,
       "macro_citation_recall": 0.0,
       "macro_citation_f1": 0.0,
@@ -1528,18 +1589,19 @@
       "details": [
         {
           "claim_id": "sample_0118_claim_1",
+          "matched_pred_claim_index": 2,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0259,
+          "text_match_score": 0.0619,
           "high_text_match": false,
           "gold_citations": [
             "rule_pi_export_std_contract_2023_art004"
           ],
           "pred_citations": [
-            "rule_pi_export_std_contract_2023_art001"
+            "rule_pi_export_std_contract_2023_art002"
           ],
           "flags": {
             "irrelevant_citation": true,
@@ -1553,12 +1615,13 @@
         },
         {
           "claim_id": "sample_0118_claim_2",
+          "matched_pred_claim_index": 0,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0575,
+          "text_match_score": 0.0588,
           "high_text_match": false,
           "gold_citations": [
             "rule_pi_export_std_contract_2023_art006"
@@ -1578,18 +1641,19 @@
         },
         {
           "claim_id": "sample_0118_claim_3",
+          "matched_pred_claim_index": 1,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0882,
+          "text_match_score": 0.0714,
           "high_text_match": false,
           "gold_citations": [
             "rule_pi_export_std_contract_2023_art009"
           ],
           "pred_citations": [
-            "rule_pi_export_std_contract_2023_art002"
+            "rule_pi_export_std_contract_2023_art001"
           ],
           "flags": {
             "irrelevant_citation": true,
@@ -1607,6 +1671,7 @@
       "sample_id": "sample_0119",
       "claim_count_gold": 3,
       "claim_count_pred": 3,
+      "alignment_method": "semantic_citation_best_match",
       "macro_citation_precision": 0.0,
       "macro_citation_recall": 0.0,
       "macro_citation_f1": 0.0,
@@ -1627,12 +1692,13 @@
       "details": [
         {
           "claim_id": "sample_0119_claim_1",
+          "matched_pred_claim_index": 1,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0,
+          "text_match_score": 0.0972,
           "high_text_match": false,
           "gold_citations": [
             "rule_telecom_internet_pi_2013_art009"
@@ -1652,12 +1718,13 @@
         },
         {
           "claim_id": "sample_0119_claim_2",
+          "matched_pred_claim_index": 0,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0,
+          "text_match_score": 0.0135,
           "high_text_match": false,
           "gold_citations": [
             "rule_telecom_internet_pi_2013_art017"
@@ -1677,6 +1744,7 @@
         },
         {
           "claim_id": "sample_0119_claim_3",
+          "matched_pred_claim_index": 2,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
@@ -1706,6 +1774,7 @@
       "sample_id": "sample_0120",
       "claim_count_gold": 3,
       "claim_count_pred": 3,
+      "alignment_method": "semantic_citation_best_match",
       "macro_citation_precision": 0.0,
       "macro_citation_recall": 0.0,
       "macro_citation_f1": 0.0,
@@ -1726,12 +1795,13 @@
       "details": [
         {
           "claim_id": "sample_0120_claim_1",
+          "matched_pred_claim_index": 1,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0217,
+          "text_match_score": 0.0667,
           "high_text_match": false,
           "gold_citations": [
             "rule_user_account_info_2022_art006"
@@ -1751,18 +1821,19 @@
         },
         {
           "claim_id": "sample_0120_claim_2",
+          "matched_pred_claim_index": 2,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0811,
+          "text_match_score": 0.0822,
           "high_text_match": false,
           "gold_citations": [
             "rule_user_account_info_2022_art009"
           ],
           "pred_citations": [
-            "rule_user_account_info_2022_art001"
+            "rule_user_account_info_2022_art002"
           ],
           "flags": {
             "irrelevant_citation": true,
@@ -1776,18 +1847,19 @@
         },
         {
           "claim_id": "sample_0120_claim_3",
+          "matched_pred_claim_index": 0,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0515,
+          "text_match_score": 0.0412,
           "high_text_match": false,
           "gold_citations": [
             "rule_user_account_info_2022_art011"
           ],
           "pred_citations": [
-            "rule_user_account_info_2022_art002"
+            "rule_user_account_info_2022_art001"
           ],
           "flags": {
             "irrelevant_citation": true,
