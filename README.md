@@ -565,4 +565,4 @@ python scripts/eval/eval_model_outputs.py --pred annotation/gpt-5_outputs.jsonl 
 - 当前公开版本已包含 `rawdata/` 原始 PDF。
 - `rawdata_conversion` 属于中间层，不作为正式发布入口。
 - 第二轮清洗后，`benchmark_test` 中 `length >= 180` 的 long claims 已降为 0（见 [annotation/claim_style_audit.json](./annotation/claim_style_audit.json)）。
-- 人工裁决日志累计 37 条，待处理队列为 0（见 [annotation/adjudication_summary.json](./annotation/adjudication_summary.json)）。
+- 人工裁决日志累计 43 条，待处理队列为 0（见 [annotation/adjudication_summary.json](./annotation/adjudication_summary.json)）。

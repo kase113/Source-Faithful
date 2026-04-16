@@ -3,12 +3,12 @@
   "source_file": "annotation/adjudication_log.jsonl",
   "queue_file": "annotation/manual_adjudication_queue.jsonl",
   "queue_pending_count": 0,
-  "total_records": 37,
+  "total_records": 43,
   "disagreement_pair_counts": [
     {
       "annotator_a": "supported",
       "annotator_b": "supported",
-      "count": 22
+      "count": 28
     },
     {
       "annotator_a": "supported",
@@ -47,11 +47,11 @@
     "support_vs_unsupported": 1,
     "unsupported_vs_partial": 1,
     "insufficient_info_boundary": 1,
-    "major_rewrite_no_label_disagreement": 22
+    "major_rewrite_no_label_disagreement": 28
   },
   "final_label_counts": {
     "partially_supported": 11,
-    "supported": 26
+    "supported": 32
   },
   "known_gap": "Sufficiency-boundary disagreements still dominate; future releases should keep increasing citation-replacement and claim-structure rewrite evidence."
 }

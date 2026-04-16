@@ -27,7 +27,7 @@ Conclusion: no draft placeholder phrases were detected in the current published 
 
 Source: `annotation/adjudication_summary.json`
 
-- total adjudication records: **37**
+- total adjudication records: **43**
 - pending manual queue items: **0**
 
 Disagreement-type counts:
@@ -39,7 +39,7 @@ Disagreement-type counts:
 | support_vs_unsupported | 1 |
 | unsupported_vs_partial | 1 |
 | insufficient_info_boundary | 1 |
-| major_rewrite_no_label_disagreement | 22 |
+| major_rewrite_no_label_disagreement | 28 |
 
 ## 4. Claim Style Audit (length risk)
 

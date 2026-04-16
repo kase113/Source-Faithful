@@ -594,7 +594,7 @@
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.1176,
+          "text_match_score": 0.1356,
           "high_text_match": false,
           "gold_citations": [
             "rule_cac_enforcement_procedure_2023_art011"
@@ -622,7 +622,7 @@
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0928,
+          "text_match_score": 0.0411,
           "high_text_match": false,
           "gold_citations": [
             "rule_cac_enforcement_procedure_2023_art019"
@@ -650,7 +650,7 @@
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0882,
+          "text_match_score": 0.127,
           "high_text_match": false,
           "gold_citations": [
             "rule_cac_enforcement_procedure_2023_art028"
@@ -1788,20 +1788,20 @@
       "details": [
         {
           "claim_id": "sample_0119_claim_1",
-          "matched_pred_claim_index": 1,
+          "matched_pred_claim_index": 2,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0972,
+          "text_match_score": 0.087,
           "high_text_match": false,
           "gold_citations": [
             "rule_telecom_internet_pi_2013_art009"
           ],
           "pred_citations": [
-            "rule_telecom_internet_pi_2013_art001",
-            "rule_telecom_internet_pi_2013_art002"
+            "rule_telecom_internet_pi_2013_art002",
+            "rule_telecom_internet_pi_2013_art006"
           ],
           "flags": {
             "irrelevant_citation": true,
@@ -1822,7 +1822,7 @@
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0135,
+          "text_match_score": 0.0303,
           "high_text_match": false,
           "gold_citations": [
             "rule_telecom_internet_pi_2013_art017"
@@ -1844,20 +1844,20 @@
         },
         {
           "claim_id": "sample_0119_claim_3",
-          "matched_pred_claim_index": 2,
+          "matched_pred_claim_index": 1,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0845,
+          "text_match_score": 0.0896,
           "high_text_match": false,
           "gold_citations": [
             "rule_telecom_internet_pi_2013_art010"
           ],
           "pred_citations": [
-            "rule_telecom_internet_pi_2013_art002",
-            "rule_telecom_internet_pi_2013_art006"
+            "rule_telecom_internet_pi_2013_art001",
+            "rule_telecom_internet_pi_2013_art002"
           ],
           "flags": {
             "irrelevant_citation": true,
