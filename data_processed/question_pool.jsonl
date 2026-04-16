@@ -1,0 +1,12 @@
+{"sample_id": "qpool_rule_pi_export_std_contract_2023", "domain": "数据合规", "question": "在哪些情形下可以处理个人信息或向境外提供个人信息？", "question_type": "条件/要件问答", "authority_scope": ["rule_pi_export_std_contract_2023"], "split": "pilot"}
+{"sample_id": "qpool_law_pipl_2021", "domain": "数据合规", "question": "在哪些情形下可以处理个人信息或向境外提供个人信息？", "question_type": "条件/要件问答", "authority_scope": ["law_pipl_2021"], "split": "pilot"}
+{"sample_id": "qpool_law_data_security_2021", "domain": "数据合规", "question": "该法规对数据处理或跨境流动作出了哪些核心合规要求？", "question_type": "程序义务问答", "authority_scope": ["law_data_security_2021"], "split": "pilot"}
+{"sample_id": "qpool_law_cybersecurity_2016", "domain": "网络安全", "question": "该法规对网络运营者或关基运营者提出了哪些义务？", "question_type": "直接法条问答", "authority_scope": ["law_cybersecurity_2016"], "split": "pilot"}
+{"sample_id": "qpool_rule_deep_synthesis_2022", "domain": "AI治理", "question": "该规定对平台算法或生成式人工智能服务的合规要求是什么？", "question_type": "程序义务问答", "authority_scope": ["rule_deep_synthesis_2022"], "split": "pilot"}
+{"sample_id": "qpool_rule_algo_recommend_2021", "domain": "AI治理", "question": "该规定对平台算法或生成式人工智能服务的合规要求是什么？", "question_type": "程序义务问答", "authority_scope": ["rule_algo_recommend_2021"], "split": "pilot"}
+{"sample_id": "qpool_rule_cross_border_data_flow_2024", "domain": "数据合规", "question": "该法规对数据处理或跨境流动作出了哪些核心合规要求？", "question_type": "程序义务问答", "authority_scope": ["rule_cross_border_data_flow_2024"], "split": "pilot"}
+{"sample_id": "qpool_reg_ciio_security_2021", "domain": "网络安全", "question": "该法规对网络运营者或关基运营者提出了哪些义务？", "question_type": "直接法条问答", "authority_scope": ["reg_ciio_security_2021"], "split": "pilot"}
+{"sample_id": "qpool_rule_data_export_security_assessment_2022", "domain": "数据合规", "question": "该法规对数据处理或跨境流动作出了哪些核心合规要求？", "question_type": "程序义务问答", "authority_scope": ["rule_data_export_security_assessment_2022"], "split": "pilot"}
+{"sample_id": "qpool_rule_genai_2023", "domain": "AI治理", "question": "该规定对平台算法或生成式人工智能服务的合规要求是什么？", "question_type": "程序义务问答", "authority_scope": ["rule_genai_2023"], "split": "pilot"}
+{"sample_id": "qpool_rule_cybersecurity_review_2021", "domain": "网络安全", "question": "该法规对网络运营者或关基运营者提出了哪些义务？", "question_type": "直接法条问答", "authority_scope": ["rule_cybersecurity_review_2021"], "split": "pilot"}
+{"sample_id": "qpool_reg_network_data_security_2025", "domain": "数据合规", "question": "该法规对数据处理或跨境流动作出了哪些核心合规要求？", "question_type": "程序义务问答", "authority_scope": ["reg_network_data_security_2025"], "split": "pilot"}
