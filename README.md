@@ -38,6 +38,7 @@
 - `scripts/build_dataset/build_from_clean_docs.py`
 - `scripts/build_dataset/expand_benchmark_pilot.py`
 - `scripts/eval/eval_model_outputs.py`
+- `scripts/eval/generate_baseline_pack.py`
 
 ### 1.2 本次额外开源内容
 
@@ -312,6 +313,8 @@ manual_revision_examples.md
 - “模型漏写例外或但书”（`exception_omission_rate`）
 - “多法源题只给单法源证据”（`multi_authority_mismatch_rate`）
 
+说明：`claim_label_accuracy` 当前是基于 `citation overlap + claim text match` 的启发式代理指标，不等同于完整法律推理裁判器。论文或报告中建议将其表述为“可复现近似评测信号”。
+
 ## 4. 复现实验流程（端到端）
 
 以下命令默认在仓库根目录执行。
@@ -360,6 +363,29 @@ python scripts/build_dataset/expand_benchmark_pilot.py
 ```bash
 python scripts/eval/eval_model_outputs.py --pred annotation/<model_name>_outputs.jsonl --data-processed data_processed --out annotation/<model_name>_eval_report.json
 ```
+
+### 4.6 一键生成弱/中/强基线并评测
+
+用于构建“模板弱基线 -> 部分约束基线 -> 参考上界基线”的对照组，避免只依赖单一 mock 输出。
+
+```bash
+python scripts/eval/generate_baseline_pack.py --data-processed data_processed --out-dir annotation --split-file benchmark_test.jsonl --run-eval
+```
+
+运行后将生成：
+
+- `annotation/baseline_weak_outputs.jsonl`
+- `annotation/baseline_balanced_outputs.jsonl`
+- `annotation/baseline_strong_outputs.jsonl`
+- `annotation/baseline_weak_eval_report.json`
+- `annotation/baseline_balanced_eval_report.json`
+- `annotation/baseline_strong_eval_report.json`
+- `annotation/baseline_eval_summary.json`
+- `annotation/baseline_eval_summary.md`
+
+当前版本可直接查看：
+
+- [annotation/baseline_eval_summary.md](./annotation/baseline_eval_summary.md)
 
 ## 5. 网页会话实操（来自教程第 13 节）
 
@@ -538,3 +564,5 @@ python scripts/eval/eval_model_outputs.py --pred annotation/gpt-5_outputs.jsonl 
 - benchmark 当前规模为 120（`84/18/18`）。
 - 当前公开版本已包含 `rawdata/` 原始 PDF。
 - `rawdata_conversion` 属于中间层，不作为正式发布入口。
+- 第二轮清洗后，`benchmark_test` 中 `length >= 180` 的 long claims 已降为 0（见 [annotation/claim_style_audit.json](./annotation/claim_style_audit.json)）。
+- 人工裁决日志累计 37 条，待处理队列为 0（见 [annotation/adjudication_summary.json](./annotation/adjudication_summary.json)）。

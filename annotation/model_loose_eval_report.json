@@ -65,13 +65,14 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0103_claim_2",
           "matched_pred_claim_index": 2,
           "gold_support_label": "supported",
-          "predicted_support_label": "partially_supported",
+          "predicted_support_label": "insufficient_information",
           "citation_precision": 0.5,
           "citation_recall": 1.0,
           "citation_f1": 0.6667,
@@ -92,7 +93,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0103_claim_3",
@@ -120,7 +122,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         }
       ]
     },
@@ -172,7 +175,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0104_claim_2",
@@ -182,7 +186,7 @@
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0875,
+          "text_match_score": 0.0597,
           "high_text_match": false,
           "gold_citations": [
             "reg_state_secrets_impl_2024_art016"
@@ -199,7 +203,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0104_claim_3",
@@ -209,7 +214,7 @@
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0894,
+          "text_match_score": 0.0897,
           "high_text_match": false,
           "gold_citations": [
             "reg_state_secrets_impl_2024_art021"
@@ -226,7 +231,8 @@
             "temporal_mismatch": true,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         }
       ]
     },
@@ -255,13 +261,13 @@
       "details": [
         {
           "claim_id": "sample_0105_claim_1",
-          "matched_pred_claim_index": 1,
+          "matched_pred_claim_index": 0,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0685,
+          "text_match_score": 0.0556,
           "high_text_match": false,
           "gold_citations": [
             "rule_algo_recommend_2021_art013"
@@ -278,17 +284,18 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0105_claim_2",
-          "matched_pred_claim_index": 0,
+          "matched_pred_claim_index": 1,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0412,
+          "text_match_score": 0.0694,
           "high_text_match": false,
           "gold_citations": [
             "rule_algo_recommend_2021_art018"
@@ -305,7 +312,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0105_claim_3",
@@ -332,7 +340,8 @@
             "temporal_mismatch": true,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         }
       ]
     },
@@ -384,7 +393,8 @@
             "temporal_mismatch": false,
             "exception_omission": true,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0106_claim_2",
@@ -411,7 +421,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0106_claim_3",
@@ -438,7 +449,8 @@
             "temporal_mismatch": true,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         }
       ]
     },
@@ -490,7 +502,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0107_claim_2",
@@ -517,7 +530,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0107_claim_3",
@@ -544,7 +558,8 @@
             "temporal_mismatch": true,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         }
       ]
     },
@@ -596,7 +611,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0108_claim_2",
@@ -623,7 +639,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0108_claim_3",
@@ -650,7 +667,8 @@
             "temporal_mismatch": true,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         }
       ]
     },
@@ -679,13 +697,13 @@
       "details": [
         {
           "claim_id": "sample_0109_claim_1",
-          "matched_pred_claim_index": 1,
+          "matched_pred_claim_index": 0,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0787,
+          "text_match_score": 0.039,
           "high_text_match": false,
           "gold_citations": [
             "rule_children_pi_network_2019_art016"
@@ -702,7 +720,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0109_claim_2",
@@ -729,17 +748,18 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0109_claim_3",
-          "matched_pred_claim_index": 0,
+          "matched_pred_claim_index": 1,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0597,
+          "text_match_score": 0.1061,
           "high_text_match": false,
           "gold_citations": [
             "rule_children_pi_network_2019_art014"
@@ -756,7 +776,8 @@
             "temporal_mismatch": true,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         }
       ]
     },
@@ -808,17 +829,18 @@
             "temporal_mismatch": false,
             "exception_omission": true,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0110_claim_2",
           "matched_pred_claim_index": 2,
           "gold_support_label": "supported",
-          "predicted_support_label": "partially_supported",
+          "predicted_support_label": "insufficient_information",
           "citation_precision": 0.5,
           "citation_recall": 1.0,
           "citation_f1": 0.6667,
-          "text_match_score": 0.0536,
+          "text_match_score": 0.0541,
           "high_text_match": false,
           "gold_citations": [
             "rule_content_ecology_2019_art006"
@@ -835,7 +857,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0110_claim_3",
@@ -862,7 +885,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         }
       ]
     },
@@ -891,13 +915,13 @@
       "details": [
         {
           "claim_id": "sample_0111_claim_1",
-          "matched_pred_claim_index": 0,
+          "matched_pred_claim_index": 1,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.044,
+          "text_match_score": 0.0602,
           "high_text_match": false,
           "gold_citations": [
             "rule_cross_border_data_flow_2024_art012"
@@ -914,7 +938,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0111_claim_2",
@@ -924,7 +949,7 @@
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0609,
+          "text_match_score": 0.0602,
           "high_text_match": false,
           "gold_citations": [
             "rule_pi_export_std_contract_2023_art004"
@@ -941,17 +966,18 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0111_claim_3",
-          "matched_pred_claim_index": 1,
+          "matched_pred_claim_index": 0,
           "gold_support_label": "supported",
           "predicted_support_label": "unsupported",
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0714,
+          "text_match_score": 0.0575,
           "high_text_match": false,
           "gold_citations": [
             "rule_cross_border_data_flow_2024_art012",
@@ -969,7 +995,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         }
       ]
     },
@@ -1021,7 +1048,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0112_claim_2",
@@ -1048,7 +1076,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0112_claim_3",
@@ -1075,7 +1104,8 @@
             "temporal_mismatch": true,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         }
       ]
     },
@@ -1127,7 +1157,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0113_claim_2",
@@ -1137,7 +1168,7 @@
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.022,
+          "text_match_score": 0.0222,
           "high_text_match": false,
           "gold_citations": [
             "rule_data_export_security_assessment_2022_art004"
@@ -1154,7 +1185,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0113_claim_3",
@@ -1181,7 +1213,8 @@
             "temporal_mismatch": true,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         }
       ]
     },
@@ -1212,11 +1245,11 @@
           "claim_id": "sample_0114_claim_1",
           "matched_pred_claim_index": 2,
           "gold_support_label": "supported",
-          "predicted_support_label": "partially_supported",
+          "predicted_support_label": "insufficient_information",
           "citation_precision": 0.5,
           "citation_recall": 1.0,
           "citation_f1": 0.6667,
-          "text_match_score": 0.0481,
+          "text_match_score": 0.0482,
           "high_text_match": false,
           "gold_citations": [
             "rule_deep_synthesis_2022_art006"
@@ -1233,7 +1266,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0114_claim_2",
@@ -1260,7 +1294,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0114_claim_3",
@@ -1270,7 +1305,7 @@
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0561,
+          "text_match_score": 0.0441,
           "high_text_match": false,
           "gold_citations": [
             "rule_deep_synthesis_2022_art023"
@@ -1287,7 +1322,8 @@
             "temporal_mismatch": true,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         }
       ]
     },
@@ -1339,7 +1375,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0115_claim_2",
@@ -1366,7 +1403,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0115_claim_3",
@@ -1393,7 +1431,8 @@
             "temporal_mismatch": true,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         }
       ]
     },
@@ -1445,7 +1484,8 @@
             "temporal_mismatch": false,
             "exception_omission": true,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0116_claim_2",
@@ -1472,7 +1512,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0116_claim_3",
@@ -1499,7 +1540,8 @@
             "temporal_mismatch": true,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         }
       ]
     },
@@ -1551,7 +1593,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0117_claim_2",
@@ -1578,7 +1621,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0117_claim_3",
@@ -1605,7 +1649,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         }
       ]
     },
@@ -1640,7 +1685,7 @@
           "citation_precision": 0.0,
           "citation_recall": 0.0,
           "citation_f1": 0.0,
-          "text_match_score": 0.0259,
+          "text_match_score": 0.0119,
           "high_text_match": false,
           "gold_citations": [
             "rule_pi_export_std_contract_2023_art004"
@@ -1657,13 +1702,14 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0118_claim_2",
           "matched_pred_claim_index": 2,
           "gold_support_label": "supported",
-          "predicted_support_label": "partially_supported",
+          "predicted_support_label": "insufficient_information",
           "citation_precision": 0.5,
           "citation_recall": 1.0,
           "citation_f1": 0.6667,
@@ -1684,7 +1730,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0118_claim_3",
@@ -1711,7 +1758,8 @@
             "temporal_mismatch": true,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         }
       ]
     },
@@ -1763,7 +1811,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0119_claim_2",
@@ -1790,7 +1839,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0119_claim_3",
@@ -1817,7 +1867,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         }
       ]
     },
@@ -1848,7 +1899,7 @@
           "claim_id": "sample_0120_claim_1",
           "matched_pred_claim_index": 2,
           "gold_support_label": "supported",
-          "predicted_support_label": "partially_supported",
+          "predicted_support_label": "insufficient_information",
           "citation_precision": 0.5,
           "citation_recall": 1.0,
           "citation_f1": 0.6667,
@@ -1869,7 +1920,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0120_claim_2",
@@ -1896,7 +1948,8 @@
             "temporal_mismatch": false,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         },
         {
           "claim_id": "sample_0120_claim_3",
@@ -1923,12 +1976,14 @@
             "temporal_mismatch": true,
             "exception_omission": false,
             "multi_authority_mismatch": false
-          }
+          },
+          "support_proxy_rule": "citation_overlap+text_match"
         }
       ]
     }
   ],
   "metric_notes": {
+    "claim_label_accuracy": "compares gold label with a heuristic predicted label proxy from citation overlap + text match",
     "irrelevant_citation_rate": "predicted citations exist but no overlap with gold citations",
     "insufficient_citation_rate": "some overlap exists but recall < 1.0",
     "overclaim_rate": "predicted citation set includes non-gold citations",

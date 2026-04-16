@@ -1,0 +1,29 @@
+{
+  "split_file": "benchmark_test.jsonl",
+  "baselines": [
+    {
+      "baseline": "weak",
+      "sample_count": 18,
+      "avg_macro_citation_f1": 0.037,
+      "avg_claim_label_accuracy": 0.0,
+      "avg_overclaim_rate": 0.963,
+      "avg_exception_omission_rate": 0.0556
+    },
+    {
+      "baseline": "balanced",
+      "sample_count": 18,
+      "avg_macro_citation_f1": 0.7716,
+      "avg_claim_label_accuracy": 0.3333,
+      "avg_overclaim_rate": 0.6667,
+      "avg_exception_omission_rate": 0.0556
+    },
+    {
+      "baseline": "strong",
+      "sample_count": 18,
+      "avg_macro_citation_f1": 1.0,
+      "avg_claim_label_accuracy": 1.0,
+      "avg_overclaim_rate": 0.0,
+      "avg_exception_omission_rate": 0.0556
+    }
+  ]
+}

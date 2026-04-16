@@ -29,63 +29,13 @@
     "test": {
       "sample_count": 18,
       "claim_count": 54,
-      "long_claim_count_ge_180": 7,
-      "long_claim_ratio_ge_180": 0.1296,
-      "very_long_claim_count_ge_220": 3,
-      "very_long_claim_ratio_ge_220": 0.0556,
+      "long_claim_count_ge_180": 0,
+      "long_claim_ratio_ge_180": 0.0,
+      "very_long_claim_count_ge_220": 0,
+      "very_long_claim_ratio_ge_220": 0.0,
       "article_like_claim_count": 0,
       "article_like_claim_ratio": 0.0
     }
   },
-  "test_long_claim_examples": [
-    {
-      "sample_id": "sample_0109",
-      "claim_id": "sample_0109_claim_1",
-      "question_type": "程序义务问答",
-      "length_chars": 234,
-      "preview": "网络运营者委托第三方处理儿童个人信息的，应当对受委托方及委托行为等进行安全评估，签署委托协议，明确双方责任、处理事项、处理期限、处理性质和目的等，委托行为不得超出授权范围。前款规定的受委托方，应当履行以下义务：（一）按照法律、行政法规的规定"
-    },
-    {
-      "sample_id": "sample_0104",
-      "claim_id": "sample_0104_claim_3",
-      "question_type": "直接法条问答",
-      "length_chars": 233,
-      "preview": "国家秘密载体管理应当遵守下列规定：(一)制作国家秘密载体，应当由机关、单位或者经保密行政管理部门保密审查合格的单位承担，制作场所应当符合保密要求。(二)收发国家秘密载体，应当履行清点、编号、登记、签收手续。(三)传递国家秘密载体，应当通过机"
-    },
-    {
-      "sample_id": "sample_0111",
-      "claim_id": "sample_0111_claim_2",
-      "question_type": "多法源联合问答",
-      "length_chars": 225,
-      "preview": "第四条个人信息处理者通过订立标准合同的方式向境外提供个人信息的，应当同时符合下列情形：（一）非关键信息基础设施运营者；（二）处理个人信息不满100 万人的；（三）自上年1 月1 日起累计向境外提供个人信息不满10 万人的；（四）自上年1 月"
-    },
-    {
-      "sample_id": "sample_0118",
-      "claim_id": "sample_0118_claim_1",
-      "question_type": "条件/要件问答",
-      "length_chars": 215,
-      "preview": "个人信息处理者通过订立标准合同的方式向境外提供个人信息的，应当同时符合下列情形：（一）非关键信息基础设施运营者；（二）处理个人信息不满100万人的；（三）自上年1月1日起累计向境外提供个人信息不满10万人的；（四）自上年1月1日起累计向境外"
-    },
-    {
-      "sample_id": "sample_0114",
-      "claim_id": "sample_0114_claim_1",
-      "question_type": "直接法条问答",
-      "length_chars": 198,
-      "preview": "任何组织和个人不得利用深度合成服务制作、复制、发布、传播法律、行政法规禁止的信息，不得利用深度合成服务从事危害国家安全和利益、损害国家形象、侵害社会公共利益、扰乱经济和社会秩序、侵犯他人合法权益等法律、行政法规禁止的活动。深度合成服务提供者"
-    },
-    {
-      "sample_id": "sample_0114",
-      "claim_id": "sample_0114_claim_3",
-      "question_type": "直接法条问答",
-      "length_chars": 195,
-      "preview": "网信部门和电信主管部门、公安部门依据职责对深度合成服务开展监督检查。深度合成服务提供者和技术支持者应当依法予以配合，并提供必要的技术、数据等支持和协助。网信部门和有关主管部门发现深度合成服务存在较大信息安全风险的，可以按照职责依法要求深度合"
-    },
-    {
-      "sample_id": "sample_0105",
-      "claim_id": "sample_0105_claim_2",
-      "question_type": "条件/要件问答",
-      "length_chars": 180,
-      "preview": "算法推荐服务提供者向未成年人提供服务的，应当依法履行未成年人网络保护义务，并通过开发适合未成年人使用的模式、提供适合未成年人特点的服务等方式，便利未成年人获取有益身心健康的信息。算法推荐服务提供者不得向未成年人推送可能引发未成年人模仿不安全"
-    }
-  ]
+  "test_long_claim_examples": []
 }

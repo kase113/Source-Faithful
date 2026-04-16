@@ -46,12 +46,19 @@ def load_gold_samples(data_processed: Path):
     return {r.get('sample_id'): r for r in all_rows if r.get('sample_id')}
 
 
-def label_from_precision_recall(prec: float, rec: float) -> str:
-    if rec == 0.0:
+def label_from_signals(prec: float, rec: float, text_match: float, overlap: int) -> str:
+    """
+    Heuristic proxy for support label:
+    - prioritize citation overlap/sufficiency
+    - down-grade exact citation match if claim text does not match enough
+    """
+    if overlap == 0 or rec == 0.0:
         return 'unsupported'
     if prec == 1.0 and rec == 1.0:
-        return 'supported'
-    return 'partially_supported'
+        return 'supported' if text_match >= 0.55 else 'partially_supported'
+    if rec >= 0.5:
+        return 'partially_supported' if text_match >= 0.3 else 'insufficient_information'
+    return 'insufficient_information'
 
 
 def citation_jaccard(a: set, b: set) -> float:
@@ -156,11 +163,10 @@ def evaluate_one_sample(gold: dict, pred: dict, text_match_threshold: float):
         rec = overlap / len(g_cits) if g_cits else 0.0
         f1 = (2 * prec * rec / (prec + rec)) if (prec + rec) > 0 else 0.0
 
-        predicted_support = label_from_precision_recall(prec, rec)
-        gold_support = g.get('support_label')
-
         tmatch = text_similarity(g_text, p_text)
         high_text_match = tmatch >= text_match_threshold
+        predicted_support = label_from_signals(prec, rec, tmatch, overlap)
+        gold_support = g.get('support_label')
 
         if gold_support and predicted_support == gold_support:
             label_match_count += 1
@@ -219,6 +225,7 @@ def evaluate_one_sample(gold: dict, pred: dict, text_match_threshold: float):
                     'exception_omission': g.get('requires_exception') and not any(k in p_text for k in ['例外', '除外', '但', '但是', '另有规定', '从其规定']),
                     'multi_authority_mismatch': g.get('requires_multi_authority') and len(p_cits) < 2,
                 },
+                'support_proxy_rule': 'citation_overlap+text_match',
             }
         )
 
@@ -334,6 +341,7 @@ def main():
         'missing_gold_sample_ids': missing_gold,
         'results': results,
         'metric_notes': {
+            'claim_label_accuracy': 'compares gold label with a heuristic predicted label proxy from citation overlap + text match',
             'irrelevant_citation_rate': 'predicted citations exist but no overlap with gold citations',
             'insufficient_citation_rate': 'some overlap exists but recall < 1.0',
             'overclaim_rate': 'predicted citation set includes non-gold citations',
